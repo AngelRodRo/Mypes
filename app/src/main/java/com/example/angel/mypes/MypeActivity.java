@@ -1,17 +1,24 @@
 package com.example.angel.mypes;
 
+import android.graphics.Typeface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 
 public class MypeActivity extends ActionBarActivity {
 
+    protected TextView customFont;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mype);
+
+        customFont = (TextView)findViewById(R.id.txtTitle);
+        Typeface fontusuario = Typeface.createFromAsset(getAssets(),"BNMachine.ttf");
+        customFont.setTypeface(fontusuario);
     }
 
 

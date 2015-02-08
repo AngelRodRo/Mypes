@@ -1,53 +1,62 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.angel.mypes.MypeActivity"
-    android:id="@+id/">
+<?xml version="1.0" encoding="utf-8"?>
 
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff5555"
+    android:gravity="center"
+    android:id="@+id/alvaro">
     <ImageView
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imgv"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Titulo"
-        android:id="@+id/txtTitle"
+        android:scaleType="fitXY"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="91dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
+        android:src="@drawable/hotel" />
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Descripcion"
-        android:id="@+id/txtDescription"
-        android:layout_below="@+id/txtTitle"
-        android:layout_alignLeft="@+id/txtTitle"
-        android:layout_alignStart="@+id/txtTitle"
-        android:layout_marginTop="40dp" />
+        android:orientation="vertical">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Como llegar"
-        android:id="@+id/btnGo"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="47dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="El Gran Hotel de Tacna"
+            android:id="@+id/txtTitle"
+            android:textSize="30dp"
+            android:layout_marginTop="40dp"/>
 
-    <RatingBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/ratingBar"
-        android:layout_marginBottom="124dp"
-        android:layout_above="@+id/btnGo"
-        android:layout_toRightOf="@+id/txtTitle"
-        android:layout_toEndOf="@+id/txtTitle" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ubicado a 2 cuadras de la Plaza de Armas, el Gran Hotel Tacna tiene 62 años recibiendo a las más grandes personalidades que han visitado nuestra Ciudad Heroica, sobresaliendo orgullosamente como la mejor opción para visitantes de negocios y ocio."
+            android:id="@+id/txtDescription"
 
-</RelativeLayout>
+            android:layout_marginTop="20dp" />
+
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ratingBar"
+            android:layout_marginBottom="124dp"
+            android:layout_above="@+id/btnGo"
+            android:layout_toRightOf="@+id/txtTitle"
+            android:layout_toEndOf="@+id/txtTitle" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="70dp"
+            android:text="Como llegar"
+            android:id="@+id/btnGo"
+
+            android:layout_marginTop="40dp" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
