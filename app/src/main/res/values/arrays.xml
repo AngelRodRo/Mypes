@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<resources>
+
+    <string-array name="tiposdemagas">
+        <item>Maxima</item>
+        <item>Media</item>
+        <item>Baja</item>
+    </string-array>
+
+    <string-array name="cantidadmagas">
+        <item>10kb</item>
+        <item>50kb</item>
+        <item>100kb</item>
+    </string-array>
+</resources>

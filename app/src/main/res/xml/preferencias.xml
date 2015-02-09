@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <CheckBoxPreference
+        android:key="musica"
+        android:title="Musica"
+        android:summary="Se Reproduce Musica de Fondo En EL Viaje"/>
+    <ListPreference
+        android:key="inter"
+        android:title="Cantidad de megas"
+        android:summary="Se escoge la capacidad de megas que queremos que tenga"
+        android:entries="@array/tiposdemagas"
+        android:entryValues="@array/cantidadmagas"/>
+</PreferenceScreen>
