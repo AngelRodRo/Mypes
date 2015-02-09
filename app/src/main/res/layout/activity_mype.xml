@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ff5555"
+    android:background="#FF3D00"
     android:gravity="center"
     android:id="@+id/alvaro">
     <ImageView
@@ -13,47 +13,47 @@
         android:layout_height="wrap_content"
         android:id="@+id/imgv"
         android:scaleType="fitXY"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:src="@drawable/hotel" />
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#EEEEEE"
             android:text="El Gran Hotel de Tacna"
             android:id="@+id/txtTitle"
-            android:textSize="30dp"
+            android:layout_gravity="center"
+            android:textSize="33dp"
             android:layout_marginTop="40dp"/>
 
         <TextView
+            android:padding="25dp"
+
+            android:background="#ffeeeeee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ubicado a 2 cuadras de la Plaza de Armas, el Gran Hotel Tacna tiene 62 años recibiendo a las más grandes personalidades que han visitado nuestra Ciudad Heroica, sobresaliendo orgullosamente como la mejor opción para visitantes de negocios y ocio."
             android:id="@+id/txtDescription"
+            android:layout_margin="20dp"
 
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="10dp" />
 
         <RatingBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/ratingBar"
-            android:layout_marginBottom="124dp"
-            android:layout_above="@+id/btnGo"
-            android:layout_toRightOf="@+id/txtTitle"
-            android:layout_toEndOf="@+id/txtTitle" />
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="center"/>
 
         <Button
             android:layout_width="fill_parent"
             android:layout_height="70dp"
             android:text="Como llegar"
-            android:id="@+id/btnGo"
-
-            android:layout_marginTop="40dp" />
+            android:id="@+id/btnGo"/>
 
 
     </LinearLayout>
