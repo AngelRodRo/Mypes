@@ -11,14 +11,14 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="250dp"
+        android:layout_height="190dp"
         android:gravity="center"
         android:background="#EEEEEE">
 
         <ImageView
 
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:src="@drawable/icon"
             />
 
@@ -26,7 +26,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -34,12 +34,11 @@
 
         <Button
             android:layout_width="200dp"
-            android:layout_height="100dp"
-            android:padding="2dp"
+            android:layout_height="80dp"
             android:textColor="#FFFFFF"
             android:text="enpresario"
             android:background="#ff007aff"
-            android:layout_marginTop="20dp"
+            android:padding="4dp"
             android:id="@+id/btnLogin"
             android:drawableLeft="@drawable/empre"
             android:shadowColor="#ff000000"
@@ -50,10 +49,10 @@
 
         <Button
             android:layout_width="200dp"
-            android:layout_height="100dp"
-            android:padding="2dp"
+            android:layout_height="80dp"
             android:textColor="#FFFFFF"
             android:text="cliente"
+            android:padding="4dp"
             android:id="@+id/btnRegister"
             android:background="#2aff80"
             android:layout_marginTop="15dp"
