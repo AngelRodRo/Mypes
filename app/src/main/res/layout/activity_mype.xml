@@ -1,62 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
 
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FF3D00"
+    android:background="#FFFFFF"
     android:gravity="center"
     android:id="@+id/alvaro">
-    <ImageView
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/imgv"
-        android:scaleType="fitXY"
-        android:src="@drawable/hotel" />
+        android:layout_height="300dp"
+        android:background="@drawable/hotel">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:id="@+id/txtTitle"
+            android:background="#724d4d4d"
+            android:textSize="30dp"
+            android:textColor="#FFFFFF"
+            android:text="EL GRAN HOTEL DE TACNA"
+            android:layout_gravity="bottom" />
+
+        </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#EEEEEE"
-            android:text="El Gran Hotel de Tacna"
-            android:id="@+id/txtTitle"
-            android:layout_gravity="center"
-            android:textSize="33dp"
-            android:layout_marginTop="40dp"/>
-
-        <TextView
-            android:padding="25dp"
-
-            android:background="#ffeeeeee"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ubicado a 2 cuadras de la Plaza de Armas, el Gran Hotel Tacna tiene 62 años recibiendo a las más grandes personalidades que han visitado nuestra Ciudad Heroica, sobresaliendo orgullosamente como la mejor opción para visitantes de negocios y ocio."
-            android:id="@+id/txtDescription"
-            android:layout_margin="20dp"
-
-            android:layout_marginTop="10dp" />
-
         <RatingBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/ratingBar"
-            android:layout_marginBottom="10dp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="left"/>
 
-        <Button
+
+
+        <TextView
+            android:padding="25dp"
+            android:background="#35cacaca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ubicado a 2 cuadras de la Plaza de Armas, el Gran Hotel Tacna tiene 62 años recibiendo a las más grandes personalidades que han visitado nuestra Ciudad Heroica, sobresaliendo orgullosamente como la mejor opción para visitantes de negocios y ocio."
+            android:id="@+id/txtDescription"
+
+            android:layout_margin="20dp"
+            android:layout_marginTop="10dp" />
+
+
+
+        <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="70dp"
-            android:text="Como llegar"
-            android:id="@+id/btnGo"/>
+
+            android:layout_height="100dp"
+           android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+
+
+                android:id="@+id/btnRegisterAction"
+                android:layout_marginTop="10dp"
+                android:layout_width="180dp"
+                android:layout_height="70dp"
+                android:text="Mapa"
+                android:background="#ffff312f"
+                android:gravity="center"/>
+
+            <Button
+
+
+                android:id="@+id/btncancelacion"
+                android:layout_marginTop="10dp"
+                android:layout_width="180dp"
+                android:layout_height="70dp"
+                android:text="Experiencia"
+                android:background="#ff239aff"
+
+                />
+        </LinearLayout>
 
 
     </LinearLayout>
 
 
 </LinearLayout>
+</ScrollView>
