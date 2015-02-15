@@ -7,5 +7,6 @@
     <string name="title_activity_register">RegisterActivity</string>
     <string name="title_activity_search_map">SearchMapActivity</string>
     <string name="title_activity_mype">MypeActivity</string>
+    <string name="title_activity_inicio_">Inicio_Activity</string>
 
 </resources>

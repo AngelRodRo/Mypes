@@ -28,9 +28,11 @@
             android:name=".MypeActivity"
             android:label="@string/title_activity_mype" >
         </activity>
-
-        <activity android:name=".Configuraciones">
-
+        <activity android:name=".Configuraciones" >
+        </activity>
+        <activity
+            android:name=".Inicio_Activity"
+            android:label="@string/title_activity_inicio_" >
         </activity>
     </application>
 
