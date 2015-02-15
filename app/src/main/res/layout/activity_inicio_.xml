@@ -35,21 +35,28 @@
         <Button
             android:layout_width="200dp"
             android:layout_height="100dp"
+            android:textColor="#FFFFFF"
             android:text="enpresario"
             android:background="#ff007aff"
             android:layout_marginTop="20dp"
             android:id="@+id/btnLogin"
             android:drawableLeft="@drawable/empre"
-            />
+            android:shadowColor="#ff000000"
+            android:shadowRadius="1.7"
+            android:shadowDx="1"
+            android:shadowDy="2"
+            android:onClick="main"/>
 
         <Button
             android:layout_width="200dp"
             android:layout_height="100dp"
+            android:textColor="#FFFFFF"
             android:text="cliente"
             android:id="@+id/btnRegister"
             android:background="#2aff80"
             android:layout_marginTop="15dp"
-            android:drawableLeft="@drawable/usu"/>
+            android:drawableLeft="@drawable/usu"
+            android:onClick="main"/>
 
 
 
