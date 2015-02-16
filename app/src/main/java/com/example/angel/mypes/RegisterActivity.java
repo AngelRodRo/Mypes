@@ -1,12 +1,13 @@
 package com.example.angel.mypes;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.actionbarsherlock.app.SherlockActivity;
 
-public class RegisterActivity extends ActionBarActivity {
+
+public class RegisterActivity extends SherlockActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,7 +16,9 @@ public class RegisterActivity extends ActionBarActivity {
     }
 
 
-    @Override
+
+
+/*    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_register, menu);
@@ -35,5 +38,5 @@ public class RegisterActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 }

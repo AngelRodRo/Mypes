@@ -1,14 +1,14 @@
 package com.example.angel.mypes;
 
 import android.graphics.Typeface;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.actionbarsherlock.app.SherlockActivity;
 
-public class MypeActivity extends ActionBarActivity {
+public class MypeActivity extends SherlockActivity {
 
     protected TextView customFont;
     @Override
@@ -22,7 +22,7 @@ public class MypeActivity extends ActionBarActivity {
     }
 
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_mype, menu);
@@ -42,5 +42,5 @@ public class MypeActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 }
