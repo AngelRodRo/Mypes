@@ -77,13 +77,22 @@ public class SearchActivity extends SherlockFragmentActivity {
             }
         };
 
-        tab = mActionBar.newTab().setText("Restaurantes").setTabListener(tabListener);
+        tab = mActionBar.newTab().setText("Restaurante").setTabListener(tabListener);
         mActionBar.addTab(tab);
 
-        tab = mActionBar.newTab().setText("Centro comerciales").setTabListener(tabListener);
+        tab = mActionBar.newTab().setText("Vestimenta").setTabListener(tabListener);
         mActionBar.addTab(tab);
 
-        tab = mActionBar.newTab().setText("Comida").setTabListener(tabListener);
+        tab = mActionBar.newTab().setText("Diversion Nocturna").setTabListener(tabListener);
+        mActionBar.addTab(tab);
+
+        tab = mActionBar.newTab().setText("Salud").setTabListener(tabListener);
+        mActionBar.addTab(tab);
+
+        tab = mActionBar.newTab().setText("Hospedaje").setTabListener(tabListener);
+        mActionBar.addTab(tab);
+
+        tab = mActionBar.newTab().setText("Ferias y comercios").setTabListener(tabListener);
         mActionBar.addTab(tab);
 
     }
