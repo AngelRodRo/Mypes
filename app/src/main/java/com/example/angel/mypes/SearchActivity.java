@@ -7,6 +7,8 @@ import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -19,6 +21,8 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
+
+import java.util.Locale;
 
 public class SearchActivity extends SherlockFragmentActivity {
 
@@ -93,6 +97,8 @@ public class SearchActivity extends SherlockFragmentActivity {
         // Locate the EditText in menu.xml
         editsearch = (EditText) menu.findItem(R.id.menu_search).getActionView();
 
+        editsearch.addTextChangedListener(textWatcher);
+
         MenuItem menuSearch = menu.findItem(R.id.menu_search);
 
         menuSearch.setOnActionExpandListener(new MenuItem.OnActionExpandListener() {
@@ -137,6 +143,32 @@ public class SearchActivity extends SherlockFragmentActivity {
         });
         return true;
     }
+
+    private TextWatcher textWatcher = new TextWatcher() {
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            // TODO Auto-generated method stub
+            String text = editsearch.getText().toString()
+                    .toLowerCase(Locale.getDefault());
+            //adapter.filter(text);
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
+                                      int arg3) {
+            // TODO Auto-generated method stub
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence arg0, int arg1, int arg2,
+                                  int arg3) {
+            // TODO Auto-generated method stub
+
+        }
+
+    };
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

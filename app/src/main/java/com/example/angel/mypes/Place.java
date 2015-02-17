@@ -25,8 +25,6 @@ public class Place {
         category=_category;
     }
 
-
-
     public void setId(String id) {
         this.id = id;
     }

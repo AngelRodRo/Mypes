@@ -228,6 +228,9 @@ public class SearchMapActivity extends SherlockActivity {
 
     }
 /*
+
+
+
     public void getGoogleMap(){
         try{
             if(map==null) {
@@ -288,7 +291,6 @@ public class SearchMapActivity extends SherlockActivity {
 
             private ProgressDialog pDialog;
 
-
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
@@ -345,9 +347,7 @@ public class SearchMapActivity extends SherlockActivity {
                             Double longitude = jsonObject.getDouble("longitud");
                             Double latitude = jsonObject.getDouble("latitud");
                             String categoria = lugar.getString("categoria");
-
                             listLugares.add(new Place(_id, nombre, direccion, telefono, new LatLng(latitude, longitude), categoria));
-
                         }
 
                     } catch (Exception e) {
