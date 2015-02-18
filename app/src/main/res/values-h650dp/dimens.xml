@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="layout_width_edith_login">250dp</dimen>
+    <dimen name="layout_height_edith_login">50dp</dimen>
+    <dimen name="layout_width_login_button"></dimen>
+    <dimen name="layout_height_login_button"></dimen>
+    <dimen name="text_size_login"></dimen>
+    <dimen name="text_size_button"></dimen>
+    <dimen name="layout_marginTop_button"></dimen>
+    <dimen name="layout_marginTop_edith"></dimen>
+</resources>
