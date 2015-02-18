@@ -4,5 +4,28 @@
     <style name="AppTheme" parent="Theme.Sherlock.Light.DarkActionBar">
         <!-- Customize your theme here. -->
     </style>
+    <!--ESTILO DE LAYOUT LOGIN SOLO PARA LOGIN BUTTON, EDITS Y IMAGENES-->
+    <style name="MyEdithText">
+        <item name="android:layout_width">@dimen/layout_width_edith_login</item>
+        <item name="android:layout_height">@dimen/layout_height_edith_login</item>
+        <item name="android:textSize">@dimen/text_size_login</item>
+        <item name="android:layout_marginTop">@dimen/layout_marginTop_edith</item>
+        <item name="android:background">#EEEEEE</item>
+    </style>
 
+    <style name="MyButton_uno">
+        <item name="android:layout_width">@dimen/layout_width_login_button</item>
+        <item name="android:layout_height">@dimen/layout_height_login_button</item>
+        <item name="android:textSize">@dimen/text_size_button</item>
+        <item name="android:layout_marginTop">@dimen/layout_marginTop_button</item>
+        <item name="android:background">#2aff80</item>
+    </style>
+
+    <style name="MyButton_dos">
+        <item name="android:layout_width">@dimen/layout_width_login_button</item>
+        <item name="android:layout_height">@dimen/layout_height_login_button</item>
+        <item name="android:textSize">@dimen/text_size_button</item>
+        <item name="android:layout_marginTop">@dimen/layout_marginTop_button</item>
+        <item name="android:background">#b3b3b3</item>
+    </style>
 </resources>
