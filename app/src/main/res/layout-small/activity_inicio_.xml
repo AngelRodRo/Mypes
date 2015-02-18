@@ -5,22 +5,21 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ff61d4ff"
+    android:background="#f9f9f9"
     android:gravity="center"
     android:id="@+id/alvaro">
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="190dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:background="#EEEEEE">
+>
 
         <ImageView
 
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@drawable/icon"
-            />
+            android:layout_width="160dp"
+            android:layout_height="170dp"
+            android:src="@drawable/iconosss"/>
 
     </LinearLayout>
     <LinearLayout
@@ -37,7 +36,8 @@
             android:layout_height="80dp"
             android:textColor="#FFFFFF"
             android:text="enpresario"
-            android:background="#ff007aff"
+            android:textSize="15dp"
+            android:background="@drawable/button_asul"
             android:padding="4dp"
             android:id="@+id/btnLogin"
             android:drawableLeft="@drawable/empre"
@@ -51,10 +51,11 @@
             android:layout_width="200dp"
             android:layout_height="80dp"
             android:textColor="#FFFFFF"
+            android:textSize="15dp"
             android:text="cliente"
             android:padding="4dp"
             android:id="@+id/btnRegister"
-            android:background="#2aff80"
+            android:background="@drawable/button_verde"
             android:layout_marginTop="15dp"
             android:drawableLeft="@drawable/usu"
             android:shadowColor="#ff000000"

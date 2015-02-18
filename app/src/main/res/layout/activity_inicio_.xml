@@ -5,32 +5,29 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ff61d4ff"
+    android:background="#f9f9f9"
     android:gravity="center"
     android:id="@+id/alvaro">
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="250dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:background="#EEEEEE">
+        >
 
         <ImageView
 
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:src="@drawable/icon"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:src="@drawable/iconosss"
             />
 
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:gravity="center"
         android:orientation="vertical">
-
-
 
         <Button
             android:layout_width="200dp"
@@ -38,9 +35,10 @@
             android:padding="2dp"
             android:textColor="#FFFFFF"
             android:text="enpresario"
-            android:background="#ff007aff"
+            android:background="@drawable/button_asul"
             android:layout_marginTop="20dp"
             android:id="@+id/btnLogin"
+            android:textSize="20dp"
             android:drawableLeft="@drawable/empre"
             android:shadowColor="#ff000000"
             android:shadowRadius="1.7"
@@ -55,7 +53,8 @@
             android:textColor="#FFFFFF"
             android:text="cliente"
             android:id="@+id/btnRegister"
-            android:background="#2aff80"
+            android:textSize="20dp"
+            android:background="@drawable/button_verde"
             android:layout_marginTop="15dp"
             android:drawableLeft="@drawable/usu"
             android:shadowColor="#ff000000"
