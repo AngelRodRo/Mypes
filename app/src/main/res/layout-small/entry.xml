@@ -29,24 +29,31 @@
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/textView_superior"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="El nombre de alvariño gey"
+            android:id="@+id/textView_superior"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ff2984ff"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:text="Oxigena"
                 />
 
             <TextView
                 android:id="@+id/textView_medio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="la direccion de alvariño gey"
+                android:textColor="#ff8c8c8c"
+
+                android:text="En la esquina de la tia veneno"
                 />
 
             <TextView
                 android:id="@+id/textView_inferior"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="el tiempo de alvariño "
+                android:textColor="#ffacacac"
+                android:layout_gravity="right"
+                android:text="1 hora "
                 />
 
         </LinearLayout>

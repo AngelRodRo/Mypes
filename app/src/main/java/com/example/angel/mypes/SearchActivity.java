@@ -80,6 +80,7 @@ public class SearchActivity extends SherlockFragmentActivity {
         tab = mActionBar.newTab().setText("Restaurante").setTabListener(tabListener);
         mActionBar.addTab(tab);
 
+
         tab = mActionBar.newTab().setText("Vestimenta").setTabListener(tabListener);
         mActionBar.addTab(tab);
 
