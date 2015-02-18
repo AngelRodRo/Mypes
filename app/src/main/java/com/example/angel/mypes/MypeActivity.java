@@ -2,12 +2,17 @@ package com.example.angel.mypes;
 
 import android.app.ProgressDialog;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.actionbarsherlock.app.SherlockActivity;
@@ -17,37 +22,41 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.InputStream;
+import java.lang.reflect.Array;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class MypeActivity extends SherlockActivity {
 
     protected TextView customFont;
-    Place place;
+
 
     TextView txtTitle;
     TextView txtDescription;
+    Place placea;
+    ListView list;
+    ImageView imgViewFondo;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mype);
 
-        customFont = (TextView)findViewById(R.id.txtTitle);
-        Typeface fontusuario = Typeface.createFromAsset(getAssets(),"BNMachine.ttf");
-        customFont.setTypeface(fontusuario);
+        imgViewFondo = (ImageView) findViewById(R.id.imgVFondo);
 
+        //customFont = (TextView)findViewById(R.id.txtTitle);
+        Typeface fontusuario = Typeface.createFromAsset(getAssets(),"BNMachine.ttf");
+//                                                                                                                 customFont.setTypeface(fontusuario);
 
         txtDescription = (TextView)findViewById(R.id.txtDescription);
 
-
         String id = getIntent().getStringExtra("id");
 
-
+        list = (ListView)findViewById(R.id.listView);
 
         getPlacesCategory(Integer.parseInt(id));
-
-        customFont.setText(place.getName());
-        txtDescription.setText(place.getDescription());
 
     }
 
@@ -60,7 +69,7 @@ public class MypeActivity extends SherlockActivity {
             private ProgressDialog pDialog;
             JSONArray lugares;
             JSONObject lugar;
-
+            Place place;
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
@@ -114,8 +123,9 @@ public class MypeActivity extends SherlockActivity {
                             Double latitude = jsonObject.getDouble("latitud");
                             String categoria = lugar.getString("categoria");
                             String descripcion = lugar.getString("descripcion");
+                            ArrayList<String> afotos = new ArrayList<String>();
 
-                            /*JSONArray comentarios = lugar.getJSONArray("comentarios");
+                            JSONArray comentarios = lugar.getJSONArray("comentarios");
                             for(int j=0;j<comentarios.length();j++)
                             {
                                 JSONObject comentario = comentarios.getJSONObject(j);
@@ -127,9 +137,18 @@ public class MypeActivity extends SherlockActivity {
                                 datos.add(fecha);
                                 datos.add(usuario);
                                 arrayComentarios.add(datos);
-                            }*/
+                            }
 
-                            place = new Place(nombre,direccion,telefono, new LatLng(latitude,longitude),categoria,arrayComentarios,descripcion);
+                            JSONArray fotos = lugar.getJSONArray("fotos");
+                            for(int k=0;k<fotos.length();k++)
+                            {
+                                String url = fotos.getString(k);
+                                afotos.add(url);
+                            }
+
+
+                            place = new Place(nombre,direccion,telefono, new LatLng(latitude,longitude),categoria,arrayComentarios,"",descripcion,afotos);
+
 
                         }
 
@@ -140,7 +159,7 @@ public class MypeActivity extends SherlockActivity {
                     Log.e("ServiceHandler", "Esta habiendo problemas para cargar el JSON");
                 }
 
-                return null;
+                return place;
             }
 
             @Override
@@ -149,9 +168,30 @@ public class MypeActivity extends SherlockActivity {
                 pDialog.dismiss();
                 // Dismiss the progress dialog
 
+                Drawable foto = LoadImageFromWebOperations("http://3.bp.blogspot.com/-8ve3Fp7BQeA/UHPM2CPY60I/AAAAAAAADOY/JUty7z2uWOE/s1600/1920x1080-Blue-Waves-Beach-Wallpaper1080p-HD.jpeg");
+                imgViewFondo.setImageDrawable(foto);
+
+                //customFont.setText(result.getName());
+                txtDescription.setText(result.getDescription());
+                ArrayList<String> arrayList = new ArrayList<String>();
+                arrayList.add(result.getComments().get(0).get(0));
+                arrayList.add(result.getComments().get(1).get(0));
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(MypeActivity.this,android.R.layout.simple_list_item_1,arrayList);
+                list.setAdapter(adapter);
 
             }
         }.execute(null, null, null);
     }
+
+    public static Drawable LoadImageFromWebOperations(String url) {
+        try {
+            InputStream is = (InputStream) new URL(url).getContent();
+            Drawable d = Drawable.createFromStream(is, "src name");
+            return d;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
 
 }

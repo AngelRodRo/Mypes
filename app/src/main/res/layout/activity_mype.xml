@@ -10,27 +10,18 @@
     android:background="#FFFFFF"
     android:gravity="center"
     android:id="@+id/alvaro">
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="300dp"
-        android:background="@drawable/hotel">
 
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="50dp"
-            android:id="@+id/txtTitle"
-            android:background="#724d4d4d"
-            android:textSize="30dp"
-            android:textColor="#FFFFFF"
-            android:text="EL GRAN HOTEL DE TACNA"
-            android:layout_gravity="bottom" />
-
-        </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        >
+        android:weightSum="1">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgVFondo"
+            android:layout_weight="3.13" />
 
         <RatingBar
             android:layout_width="wrap_content"
@@ -52,41 +43,30 @@
             android:layout_marginTop="10dp" />
 
 
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:id="@+id/editText" />
 
-        <LinearLayout
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Button"
+            android:id="@+id/button4"
+            android:layout_gravity="right" />
+
+        <ListView
+            android:id="@+id/listView"
             android:layout_width="fill_parent"
-
-            android:layout_height="100dp"
-           android:gravity="center"
-            android:orientation="horizontal">
-
-            <Button
-
-
-                android:id="@+id/btnRegisterAction"
-                android:layout_marginTop="10dp"
-                android:layout_width="180dp"
-                android:layout_height="70dp"
-                android:text="Mapa"
-                android:background="#ffff312f"
-                android:gravity="center"/>
-
-            <Button
-
-
-                android:id="@+id/btncancelacion"
-                android:layout_marginTop="10dp"
-                android:layout_width="180dp"
-                android:layout_height="70dp"
-                android:text="Experiencia"
-                android:background="#ff239aff"
-
-                />
-        </LinearLayout>
-
+            android:layout_height="148dp"
+            android:layout_weight="0.47"></ListView>
 
     </LinearLayout>
 
 
+
 </LinearLayout>
+
 </ScrollView>

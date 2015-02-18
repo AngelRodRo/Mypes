@@ -77,7 +77,7 @@
         <activity
             android:name=".SearchMapActivity"
             android:label="@string/title_activity_search"
-            android:icon="@drawable/icono">
+            android:icon="@drawable/ic_launcher">
         </activity>
         <activity
             android:name=".PlaceActivity"

@@ -18,6 +18,7 @@ public class Place {
     private ArrayList<ArrayList<String>> comments;
     private String score;
     private String description;
+    private ArrayList<String> photos;
 
     public Place(){}
 
@@ -55,6 +56,18 @@ public class Place {
         description = _description;
     }
 
+    public Place(String _name,String _address,String _phone,LatLng _position,String _category,ArrayList<ArrayList<String>> _comments,String _score,String _description,ArrayList<String> _photos)
+    {
+        name=_name;
+        address=_address;
+        position = _position;
+        phone=_phone;
+        category=_category;
+        comments = _comments;
+        score = _score;
+        description = _description;
+        photos = _photos;
+    }
 
     public void setId(String id) {
         this.id = id;
@@ -78,6 +91,22 @@ public class Place {
 
     public void setPosition(LatLng position) {
         this.position = position;
+    }
+
+    public void setComments(ArrayList<ArrayList<String>> comments) {
+        this.comments = comments;
+    }
+
+    public void setScore(String score) {
+        this.score = score;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPhotos(ArrayList<String> photos) {
+        this.photos = photos;
     }
 
     public String getId() {
@@ -114,5 +143,9 @@ public class Place {
 
     public String getDescription() {
         return description;
+    }
+
+    public ArrayList<String> getPhotos() {
+        return photos;
     }
 }
