@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--
+
     <dimen name="layout_width_edith_login">250dp</dimen>
     <dimen name="layout_height_edith_login">50dp</dimen>
     <dimen name="layout_width_login_button">185dp</dimen>
@@ -9,5 +9,5 @@
     <dimen name="text_size_button">17sp</dimen>
     <dimen name="layout_marginTop_button">6dp</dimen>
     <dimen name="layout_marginTop_edith">2dp</dimen>
-    <dimen name="layout_height_layout_image">180dp</dimen>-->
+    <dimen name="layout_height_layout_image">180dp</dimen>
 </resources>

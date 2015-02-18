@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <dimen name="layout_width_edith_login">260dp</dimen>
     <dimen name="layout_height_edith_login">55dp</dimen>
     <dimen name="layout_width_login_button">190dp</dimen>
