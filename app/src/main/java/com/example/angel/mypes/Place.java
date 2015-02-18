@@ -2,6 +2,8 @@ package com.example.angel.mypes;
 
 import com.google.android.gms.maps.model.LatLng;
 
+import java.util.ArrayList;
+
 /**
  * Created by angel on 09/02/15.
  */
@@ -13,6 +15,11 @@ public class Place {
     private String phone;
     private LatLng position;
     private String category;
+    private ArrayList<ArrayList<String>> comments;
+    private String score;
+    private String description;
+
+    public Place(){}
 
 
     public Place(String _id,String _name,String _address,String _phone,LatLng _position,String _category)
@@ -24,6 +31,30 @@ public class Place {
         phone=_phone;
         category=_category;
     }
+
+    public Place(String _name,String _address,String _phone,LatLng _position,String _category,ArrayList<ArrayList<String>> _comments,String _description)
+    {
+        name=_name;
+        address=_address;
+        position = _position;
+        phone=_phone;
+        category=_category;
+        comments = _comments;
+        description = _description;
+    }
+
+    public Place(String _name,String _address,String _phone,LatLng _position,String _category,ArrayList<ArrayList<String>> _comments,String _score,String _description)
+    {
+        name=_name;
+        address=_address;
+        position = _position;
+        phone=_phone;
+        category=_category;
+        comments = _comments;
+        score = _score;
+        description = _description;
+    }
+
 
     public void setId(String id) {
         this.id = id;
@@ -71,5 +102,17 @@ public class Place {
 
     public LatLng getPosition() {
         return position;
+    }
+
+    public ArrayList<ArrayList<String>> getComments() {
+        return comments;
+    }
+
+    public String getScore() {
+        return score;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }

@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -26,37 +27,20 @@ import java.util.ArrayList;
  */
 public class FragmentTab2 extends SherlockFragment {
 
-    ArrayList<Place> data = new ArrayList<Place>();
+
     ListView lv;
-    ListAdapter listAdapter;
+
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        listAdapter = new ListAdapter(getActivity().getBaseContext(),R.layout.entry,data){
-            @Override
-            public void onEntrada(Object entrada, View view) {
-                if (entrada != null) {
-                    TextView textTopEntry = (TextView) view.findViewById(R.id.textView_superior);
-                    if (textTopEntry != null)
-                        textTopEntry.setText(((Place) entrada).getName());
 
-                    TextView textBottomEntry = (TextView) view.findViewById(R.id.textView_inferior);
-                    if (textBottomEntry != null)
-                        textBottomEntry.setText(((Place) entrada).getCategory());
-
-                    TextView textBetweenEntry = (TextView) view.findViewById(R.id.textView_medio);
-                    if (textBetweenEntry != null)
-                        textBetweenEntry.setText(((Place) entrada).getAddress());
-                }
-            }
-        };
 
         View view = inflater.inflate(R.layout.fragmenttab2,container,false);
-        lv = (ListView) view.findViewById(R.id.listView);
+        lv = (ListView) view.findViewById(R.id.listView3);
 
-        lv.setAdapter(listAdapter);
+
 
         getPlacesCategory("Vestimenta",view);
 
@@ -71,7 +55,7 @@ public class FragmentTab2 extends SherlockFragment {
 
     public void getPlacesCategory(final String category,final View view)
     {
-        new AsyncTask<Void, Void, ArrayList<Place>>() {
+        new AsyncTask<Void, Void, ListAdapter>() {
 
             private ProgressDialog pDialog;
             JSONArray lugares;
@@ -89,11 +73,13 @@ public class FragmentTab2 extends SherlockFragment {
             }
 
             @Override
-            protected ArrayList<Place> doInBackground(Void... arg0) {
+            protected ListAdapter doInBackground(Void... arg0) {
                 // CREAMOS LA INSTANCIA DE LA CLASE
                 String jsonStr="";
-
+                ListAdapter listAdapter=null;
                 JSONObject jsonparam;
+                ArrayList<Place> data = new ArrayList<Place>();
+
                 try{
                     jsonparam = new JSONObject();
                     jsonparam.put("categoria",category);
@@ -127,6 +113,26 @@ public class FragmentTab2 extends SherlockFragment {
                             Double latitude = jsonObject.getDouble("latitud");
                             String categoria = lugar.getString("categoria");
                             data.add(new Place(_id, nombre, direccion, telefono, new LatLng(latitude, longitude), categoria));
+
+                            listAdapter = new ListAdapter(getActivity().getBaseContext(),R.layout.entry,data){
+                                @Override
+                                public void onEntrada(Object entrada, View view) {
+                                    if (entrada != null) {
+                                        TextView textTopEntry = (TextView) view.findViewById(R.id.textView_superior);
+                                        if (textTopEntry != null)
+                                            textTopEntry.setText(((Place) entrada).getName());
+
+                                        TextView textBottomEntry = (TextView) view.findViewById(R.id.textView_inferior);
+                                        if (textBottomEntry != null)
+                                            textBottomEntry.setText(((Place) entrada).getCategory());
+
+                                        TextView textBetweenEntry = (TextView) view.findViewById(R.id.textView_medio);
+                                        if (textBetweenEntry != null)
+                                            textBetweenEntry.setText(((Place) entrada).getAddress());
+                                    }
+                                }
+                            };
+
                         }
 
                     } catch (Exception e) {
@@ -136,14 +142,14 @@ public class FragmentTab2 extends SherlockFragment {
                     Log.e("ServiceHandler", "Esta habiendo problemas para cargar el JSON");
                 }
 
-                return null;
+                return listAdapter;
             }
 
             @Override
-            protected void onPostExecute(ArrayList<Place> result) {
+            protected void onPostExecute(ListAdapter result) {
                 super.onPostExecute(result);
                 pDialog.dismiss();
-                updateList();
+                updateList(result);
 
 
                 // Dismiss the progress dialog
@@ -153,8 +159,8 @@ public class FragmentTab2 extends SherlockFragment {
         }.execute(null, null, null);
     }
 
-    public void updateList()
+    public void updateList(ListAdapter listAdapter)
     {
-        listAdapter.notifyDataSetChanged();
+        lv.setAdapter(listAdapter);
     }
 }

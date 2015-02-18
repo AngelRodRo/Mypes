@@ -1,12 +1,14 @@
 package com.example.angel.mypes;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -26,41 +28,31 @@ import java.util.ArrayList;
  */
 public class FragmentTab1 extends SherlockFragment {
 
-    ArrayList<Place> data = new ArrayList<Place>();
     ListView lv;
-    ListAdapter listAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
-        listAdapter = new ListAdapter(getActivity().getBaseContext(),R.layout.entry,data){
-            @Override
-            public void onEntrada(Object entrada, View view) {
-                if (entrada != null) {
-                    TextView textTopEntry = (TextView) view.findViewById(R.id.textView_superior);
-                    if (textTopEntry != null)
-                        textTopEntry.setText(((Place) entrada).getName());
-
-                    TextView textBottomEntry = (TextView) view.findViewById(R.id.textView_inferior);
-                    if (textBottomEntry != null)
-                        textBottomEntry.setText(((Place) entrada).getCategory());
-
-                    TextView textBetweenEntry = (TextView) view.findViewById(R.id.textView_medio);
-                    if (textBetweenEntry != null)
-                        textBetweenEntry.setText(((Place) entrada).getAddress());
-
-
-                }
-            }
-        };
-
         View view = inflater.inflate(R.layout.fragmenttab1,container,false);
         lv = (ListView) view.findViewById(R.id.listView);
 
-        lv.setAdapter(listAdapter);
-
         getPlacesCategory("Restaurante",view);
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Place select = (Place) parent.getItemAtPosition(position);
+
+                Intent startPlace = new Intent(view.getContext(),MypeActivity.class);
+                startPlace.putExtra("id",select.getId());
+
+                startActivity(startPlace);
+
+
+            }
+        });
+
 
         return view;
     }
@@ -73,7 +65,7 @@ public class FragmentTab1 extends SherlockFragment {
 
     public void getPlacesCategory(final String category,final View view)
     {
-        new AsyncTask<Void, Void, ArrayList<Place>>() {
+        new AsyncTask<Void, Void, ListAdapter>() {
 
             private ProgressDialog pDialog;
             JSONArray lugares;
@@ -91,11 +83,13 @@ public class FragmentTab1 extends SherlockFragment {
             }
 
             @Override
-            protected ArrayList<Place> doInBackground(Void... arg0) {
+            protected ListAdapter doInBackground(Void... arg0) {
                 // CREAMOS LA INSTANCIA DE LA CLASE
                 String jsonStr="";
-
+                ListAdapter listAdapter=null;
                 JSONObject jsonparam;
+                ArrayList<Place> data = new ArrayList<Place>();
+
                 try{
                     jsonparam = new JSONObject();
                     jsonparam.put("categoria",category);
@@ -129,6 +123,26 @@ public class FragmentTab1 extends SherlockFragment {
                             Double latitude = jsonObject.getDouble("latitud");
                             String categoria = lugar.getString("categoria");
                             data.add(new Place(_id, nombre, direccion, telefono, new LatLng(latitude, longitude), categoria));
+
+                            listAdapter = new ListAdapter(getActivity().getBaseContext(),R.layout.entry,data){
+                                @Override
+                                public void onEntrada(Object entrada, View view) {
+                                    if (entrada != null) {
+                                        TextView textTopEntry = (TextView) view.findViewById(R.id.textView_superior);
+                                        if (textTopEntry != null)
+                                            textTopEntry.setText(((Place) entrada).getName());
+
+                                        TextView textBottomEntry = (TextView) view.findViewById(R.id.textView_inferior);
+                                        if (textBottomEntry != null)
+                                            textBottomEntry.setText(((Place) entrada).getCategory());
+
+                                        TextView textBetweenEntry = (TextView) view.findViewById(R.id.textView_medio);
+                                        if (textBetweenEntry != null)
+                                            textBetweenEntry.setText(((Place) entrada).getAddress());
+                                    }
+                                }
+                            };
+
                         }
 
                     } catch (Exception e) {
@@ -138,14 +152,14 @@ public class FragmentTab1 extends SherlockFragment {
                     Log.e("ServiceHandler", "Esta habiendo problemas para cargar el JSON");
                 }
 
-                return null;
+                return listAdapter;
             }
 
             @Override
-            protected void onPostExecute(ArrayList<Place> result) {
+            protected void onPostExecute(ListAdapter result) {
                 super.onPostExecute(result);
                 pDialog.dismiss();
-                updateList();
+                updateList(result);
 
 
                 // Dismiss the progress dialog
@@ -155,9 +169,9 @@ public class FragmentTab1 extends SherlockFragment {
         }.execute(null, null, null);
     }
 
-    public void updateList()
+    public void updateList(ListAdapter result)
     {
-        listAdapter.notifyDataSetChanged();
+        lv.setAdapter(result);
     }
 
 }
