@@ -14,7 +14,7 @@
         <ImageView
             android:id="@+id/imageView_imagen"
             android:layout_margin="3dp"
-            android:layout_width="80dp"
+            android:layout_width="110dp"
             android:layout_height="80dp"
             android:adjustViewBounds="true"
             android:scaleType="fitXY"
