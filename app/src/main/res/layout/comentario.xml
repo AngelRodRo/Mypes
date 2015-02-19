@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_margin="10dp"
+
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#30a3abf1">
+
+        <ImageView
+            android:id="@+id/imageView_foto"
+            android:layout_margin="3dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:contentDescription="Descripción del contenido de la imagen"/>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView_nombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffff4575"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:text="Julio gay"
+                />
+            <TextView
+                android:id="@+id/textView_tiempo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ff8c8c8c"
+                android:textSize="11dp"
+                android:text="1 hora ago"
+                android:layout_gravity="right"
+                />
+
+            <TextView
+                android:id="@+id/textView_comentario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ff8c8c8c"
+
+                android:text="Este es mejor comentario de la historia wipu..."
+                />
+
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

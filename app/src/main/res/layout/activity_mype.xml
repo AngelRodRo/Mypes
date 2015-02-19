@@ -43,25 +43,38 @@
             android:layout_marginTop="10dp" />
 
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:ems="10"
-            android:id="@+id/editText" />
+       <LinearLayout
+           android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:layout_margin="10dp"
+           android:gravity="right">
+           <EditText
+               android:layout_width="wrap_content"
+               android:layout_height="70dp"
+               android:inputType="textMultiLine"
+               android:layout_marginRight="10dp"
+               android:ems="10"
+               android:id="@+id/editText" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/button4"
-            android:layout_gravity="right" />
+           <Button
+               android:layout_width="130dp"
+               android:layout_height="70dp"
+               android:textColor="#FFFFFF"
+               android:textStyle="bold"
+               android:text="Comenta"
+               android:id="@+id/button4"
+               android:background="#ff5a96ff"
+               />
+           </LinearLayout>
 
         <ListView
             android:id="@+id/listView"
             android:layout_width="fill_parent"
             android:layout_height="148dp"
-            android:layout_weight="0.47"></ListView>
+            android:layout_weight="0.47">
+
+        </ListView>
 
     </LinearLayout>
 
