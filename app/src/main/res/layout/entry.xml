@@ -43,17 +43,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#ff8c8c8c"
-
                 android:text="En la esquina de la tia veneno"
                 />
 
-            <RatingBar
-                android:layout_marginLeft="5dip"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:numStars="5"
-                android:id="@+id/ratingBar2" />
 
 
         </LinearLayout>

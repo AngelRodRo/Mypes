@@ -2,6 +2,10 @@ package com.example.angel.mypes;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -20,6 +25,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -48,8 +56,6 @@ public class FragmentTab1 extends SherlockFragment {
                 startPlace.putExtra("id",select.getId());
 
                 startActivity(startPlace);
-
-
             }
         });
 
@@ -62,6 +68,8 @@ public class FragmentTab1 extends SherlockFragment {
         super.onSaveInstanceState(outState);
         setUserVisibleHint(true);
     }
+
+
 
     public void getPlacesCategory(final String category,final View view)
     {
@@ -113,7 +121,7 @@ public class FragmentTab1 extends SherlockFragment {
 
                         for (int i = 0; i < lugares.length(); i++) {
                             lugar = lugares.getJSONObject(i);
-
+                            //Bitmap bitmap;
                             String _id = lugar.getString("_id");
                             String nombre = lugar.getString("nombre");
                             String direccion = lugar.getString("direccion");
@@ -122,7 +130,20 @@ public class FragmentTab1 extends SherlockFragment {
                             Double longitude = jsonObject.getDouble("longitud");
                             Double latitude = jsonObject.getDouble("latitud");
                             String categoria = lugar.getString("categoria");
-                            data.add(new Place(_id, nombre, direccion, telefono, new LatLng(latitude, longitude), categoria));
+
+                            JSONArray fotos = lugar.getJSONArray("fotos");
+
+                            String foto = fotos.getString(0);
+
+                            Bitmap bitmap=null;
+
+                            try {
+                                bitmap = BitmapFactory.decodeStream((InputStream)new URL(foto).getContent());
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+
+                            data.add(new Place(_id, bitmap, nombre, direccion, telefono, new LatLng(latitude, longitude), categoria));
 
                             listAdapter = new ListAdapter(getActivity().getBaseContext(),R.layout.entry,data){
                                 @Override
@@ -132,10 +153,10 @@ public class FragmentTab1 extends SherlockFragment {
                                         if (textTopEntry != null)
                                             textTopEntry.setText(((Place) entrada).getName());
 
-                                        TextView textBottomEntry = (TextView) view.findViewById(R.id.textView_inferior);
-                                        if (textBottomEntry != null)
-                                            textBottomEntry.setText(((Place) entrada).getCategory());
-
+                                        ImageView imageView = (ImageView) view.findViewById(R.id.imageView_imagen);
+                                        if(imageView!=null) {
+                                            imageView.setImageBitmap(((Place) entrada).getFoto());
+                                        }
                                         TextView textBetweenEntry = (TextView) view.findViewById(R.id.textView_medio);
                                         if (textBetweenEntry != null)
                                             textBetweenEntry.setText(((Place) entrada).getAddress());

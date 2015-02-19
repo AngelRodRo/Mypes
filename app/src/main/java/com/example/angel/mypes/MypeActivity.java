@@ -1,7 +1,13 @@
 package com.example.angel.mypes;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -14,14 +20,18 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockActivity;
 import com.google.android.gms.maps.model.LatLng;
+import com.loopj.android.image.SmartImageView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.InputStream;
 import java.lang.reflect.Array;
 import java.net.URL;
@@ -38,17 +48,17 @@ public class MypeActivity extends SherlockActivity {
     ListView list;
     ImageView imgViewFondo;
 
-
+    ImageView myImage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mype);
 
-        imgViewFondo = (ImageView) findViewById(R.id.imgVFondo);
-
         //customFont = (TextView)findViewById(R.id.txtTitle);
         Typeface fontusuario = Typeface.createFromAsset(getAssets(),"BNMachine.ttf");
-//                                                                                                                 customFont.setTypeface(fontusuario);
+        //customFont.setTypeface(fontusuario);
+
+        myImage = (ImageView) this.findViewById(R.id.my_image);
 
         txtDescription = (TextView)findViewById(R.id.txtDescription);
 
@@ -59,7 +69,6 @@ public class MypeActivity extends SherlockActivity {
         getPlacesCategory(Integer.parseInt(id));
 
     }
-
 
     public void getPlacesCategory(final int id)
     {
@@ -84,13 +93,10 @@ public class MypeActivity extends SherlockActivity {
             protected Place doInBackground(Void... arg0) {
                 // CREAMOS LA INSTANCIA DE LA CLASE
                 String jsonStr="";
-                ListAdapter listAdapter=null;
                 JSONObject jsonparam;
-                ArrayList<Place> data = new ArrayList<Place>();
                 ArrayList<ArrayList<String>> arrayComentarios = new ArrayList<ArrayList<String>>();
                 ArrayList<String> datos = new ArrayList<String>();
-                ArrayList<ArrayList<String>> arrayScore = new ArrayList<ArrayList<String>>();
-
+                Bitmap bitmap=null;
 
                 try{
                     jsonparam = new JSONObject();
@@ -146,9 +152,14 @@ public class MypeActivity extends SherlockActivity {
                                 afotos.add(url);
                             }
 
+                            try {
+                                bitmap = BitmapFactory.decodeStream((InputStream)new URL(afotos.get(0)).getContent());
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
 
-                            place = new Place(nombre,direccion,telefono, new LatLng(latitude,longitude),categoria,arrayComentarios,"",descripcion,afotos);
 
+                            place = new Place(nombre,bitmap,direccion,telefono, new LatLng(latitude,longitude),categoria,arrayComentarios,"",descripcion,afotos);
 
                         }
 
@@ -168,10 +179,8 @@ public class MypeActivity extends SherlockActivity {
                 pDialog.dismiss();
                 // Dismiss the progress dialog
 
-                Drawable foto = LoadImageFromWebOperations("http://3.bp.blogspot.com/-8ve3Fp7BQeA/UHPM2CPY60I/AAAAAAAADOY/JUty7z2uWOE/s1600/1920x1080-Blue-Waves-Beach-Wallpaper1080p-HD.jpeg");
-                imgViewFondo.setImageDrawable(foto);
-
-                //customFont.setText(result.getName());
+                //Drawable foto = LoadImageFromWebOperations("http://3.bp.blogspot.com/-8ve3Fp7BQeA/UHPM2CPY60I/AAAAAAAADOY/JUty7z2uWOE/s1600/1920x1080-Blue-Waves-Beach-Wallpaper1080p-HD.jpeg");
+                  //customFont.setText(result.getName());
                 txtDescription.setText(result.getDescription());
                 ArrayList<String> arrayList = new ArrayList<String>();
                 arrayList.add(result.getComments().get(0).get(0));
@@ -179,19 +188,34 @@ public class MypeActivity extends SherlockActivity {
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(MypeActivity.this,android.R.layout.simple_list_item_1,arrayList);
                 list.setAdapter(adapter);
 
+                myImage.setImageBitmap(result.getFoto());
+
+
             }
         }.execute(null, null, null);
     }
 
-    public static Drawable LoadImageFromWebOperations(String url) {
-        try {
-            InputStream is = (InputStream) new URL(url).getContent();
-            Drawable d = Drawable.createFromStream(is, "src name");
-            return d;
-        } catch (Exception e) {
-            return null;
-        }
+
+
+    public void accionGaleria (View view){
+        Intent intentGaleria = new Intent(MypeActivity.this,GaleryActivity.class);
+        ArrayList<String> urlList = new ArrayList<>();
+        urlList.add("http://portal.rodferperu.com/img/imagen7.png");
+        intentGaleria.putStringArrayListExtra("urlList",urlList);
+        startActivity(intentGaleria);
     }
 
 
+    public void accionComentar(View view) {
+        final SharedPreferences prefs = getSharedPreferences(
+                "DataUser", Context.MODE_PRIVATE);
+        Boolean registrado = prefs.getBoolean("registrado", false);
+        if (registrado) {
+
+        } else {
+            Toast.makeText(MypeActivity.this,"Por favor debe registrarse",Toast.LENGTH_LONG).show();
+            Intent loginActivity = new Intent(MypeActivity.this,RegisterActivity.class);
+            startActivity(loginActivity);
+        }
+    }
 }

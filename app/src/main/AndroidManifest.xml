@@ -76,8 +76,8 @@
         </activity>
         <activity
             android:name=".SearchMapActivity"
-            android:label="@string/title_activity_search"
-            android:icon="@drawable/ic_launcher">
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/title_activity_search" >
         </activity>
         <activity
             android:name=".PlaceActivity"
@@ -90,6 +90,10 @@
         <activity
             android:name=".RegisterLocationActivity"
             android:label="@string/title_activity_register_location" >
+        </activity>
+        <activity
+            android:name=".GaleryActivity"
+            android:label="@string/title_activity_galery" >
         </activity>
     </application>
 

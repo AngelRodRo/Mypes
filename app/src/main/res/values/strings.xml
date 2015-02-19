@@ -24,5 +24,6 @@
     <string name="title_activity_place">PlaceActivity</string>
     <string name="title_activity_register_mype">RegisterMypeActivity</string>
     <string name="title_activity_register_location">RegisterLocationActivity</string>
+    <string name="title_activity_galery">GaleryActivity</string>
 
 </resources>

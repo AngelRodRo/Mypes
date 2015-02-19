@@ -111,9 +111,6 @@ public class FragmentTab4 extends SherlockFragment {
                                         if (textTopEntry != null)
                                             textTopEntry.setText(((Place) entrada).getName());
 
-                                        TextView textBottomEntry = (TextView) view.findViewById(R.id.textView_inferior);
-                                        if (textBottomEntry != null)
-                                            textBottomEntry.setText(((Place) entrada).getCategory());
 
                                         TextView textBetweenEntry = (TextView) view.findViewById(R.id.textView_medio);
                                         if (textBetweenEntry != null)

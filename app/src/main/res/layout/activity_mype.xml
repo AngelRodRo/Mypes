@@ -18,6 +18,12 @@
         android:weightSum="1">
 
         <ImageView
+            android:layout_width="397dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/my_image"
+            android:layout_gravity="center_horizontal" />
+
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/imgVFondo"
@@ -43,7 +49,15 @@
             android:layout_marginTop="10dp" />
 
 
-       <LinearLayout
+        <Button
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:text="Galeria"
+            android:id="@+id/btnGalery"
+            android:layout_gravity="right"
+            android:onClick="accionGaleria"/>
+
+        <LinearLayout
            android:layout_width="fill_parent"
            android:layout_height="wrap_content"
            android:orientation="horizontal"

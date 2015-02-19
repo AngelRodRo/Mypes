@@ -1,5 +1,7 @@
 package com.example.angel.mypes;
 
+import android.graphics.Bitmap;
+
 import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
@@ -19,6 +21,7 @@ public class Place {
     private String score;
     private String description;
     private ArrayList<String> photos;
+    private Bitmap foto;
 
     public Place(){}
 
@@ -33,6 +36,18 @@ public class Place {
         category=_category;
     }
 
+    public Place(String _id,Bitmap _foto,String _name,String _address,String _phone,LatLng _position,String _category)
+    {
+        id=_id;
+        name=_name;
+        address=_address;
+        position = _position;
+        phone=_phone;
+        category=_category;
+        foto = _foto;
+    }
+
+
     public Place(String _name,String _address,String _phone,LatLng _position,String _category,ArrayList<ArrayList<String>> _comments,String _description)
     {
         name=_name;
@@ -42,6 +57,7 @@ public class Place {
         category=_category;
         comments = _comments;
         description = _description;
+
     }
 
     public Place(String _name,String _address,String _phone,LatLng _position,String _category,ArrayList<ArrayList<String>> _comments,String _score,String _description)
@@ -56,7 +72,7 @@ public class Place {
         description = _description;
     }
 
-    public Place(String _name,String _address,String _phone,LatLng _position,String _category,ArrayList<ArrayList<String>> _comments,String _score,String _description,ArrayList<String> _photos)
+    public Place(String _name,Bitmap _foto,String _address,String _phone,LatLng _position,String _category,ArrayList<ArrayList<String>> _comments,String _score,String _description,ArrayList<String> _photos)
     {
         name=_name;
         address=_address;
@@ -67,6 +83,7 @@ public class Place {
         score = _score;
         description = _description;
         photos = _photos;
+        foto = _foto;
     }
 
     public void setId(String id) {
@@ -109,6 +126,10 @@ public class Place {
         this.photos = photos;
     }
 
+    public void setFoto(Bitmap foto) {
+        this.foto = foto;
+    }
+
     public String getId() {
         return id;
     }
@@ -147,5 +168,9 @@ public class Place {
 
     public ArrayList<String> getPhotos() {
         return photos;
+    }
+
+    public Bitmap getFoto() {
+        return foto;
     }
 }
