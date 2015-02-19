@@ -35,8 +35,7 @@
             android:textColor="#ff2984ff"
             android:textStyle="bold"
             android:textSize="18dp"
-            android:text="Oxigena"
-                />
+            android:text="Oxigena"/>
 
             <TextView
                 android:id="@+id/textView_medio"
@@ -44,8 +43,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#ff8c8c8c"
 
-                android:text="En la esquina de la tia veneno"
-                />
+                android:text="En la esquina de la tia veneno" />
 
             <RatingBar
                 android:layout_marginLeft="5dip"
