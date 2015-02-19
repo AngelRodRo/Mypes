@@ -9,6 +9,8 @@
         android:divider="@android:color/transparent"
         android:dividerHeight= "14.5sp"
         android:id="@+id/listView"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="15.5sp"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true" />
 </RelativeLayout>
