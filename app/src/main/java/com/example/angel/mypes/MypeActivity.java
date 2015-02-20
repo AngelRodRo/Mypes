@@ -183,8 +183,8 @@ public class MypeActivity extends SherlockActivity {
                   //customFont.setText(result.getName());
                 txtDescription.setText(result.getDescription());
                 ArrayList<String> arrayList = new ArrayList<String>();
-                arrayList.add(result.getComments().get(0).get(0));
-                arrayList.add(result.getComments().get(1).get(0));
+                for(int i=0;i<result.getComments().size();i++)
+                    arrayList.add(result.getComments().get(i).get(0));
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(MypeActivity.this,android.R.layout.simple_list_item_1,arrayList);
                 list.setAdapter(adapter);
 
@@ -196,6 +196,10 @@ public class MypeActivity extends SherlockActivity {
     }
 
 
+    public void accionLlamar(View view)
+    {
+
+    }
 
     public void accionGaleria (View view){
         Intent intentGaleria = new Intent(MypeActivity.this,GaleryActivity.class);
@@ -208,14 +212,14 @@ public class MypeActivity extends SherlockActivity {
 
     public void accionComentar(View view) {
         final SharedPreferences prefs = getSharedPreferences(
-                "DataUser", Context.MODE_PRIVATE);
-        Boolean registrado = prefs.getBoolean("registrado", false);
-        if (registrado) {
+                "RegisterData", Context.MODE_PRIVATE);
+        Boolean login = prefs.getBoolean("login", false);
+        if (login) {
 
         } else {
-            Toast.makeText(MypeActivity.this,"Por favor debe registrarse",Toast.LENGTH_LONG).show();
-            Intent loginActivity = new Intent(MypeActivity.this,RegisterActivity.class);
-            startActivity(loginActivity);
+            Toast.makeText(MypeActivity.this,"Por favor debe iniciar sesion",Toast.LENGTH_LONG).show();
+            Intent mainActivity = new Intent(MypeActivity.this,MainActivity.class);
+            startActivity(mainActivity);
         }
     }
 }

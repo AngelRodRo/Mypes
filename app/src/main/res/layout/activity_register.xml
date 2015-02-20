@@ -72,6 +72,7 @@
         android:layout_marginTop="15dp"
         android:layout_width="200dp"
         android:layout_height="70dp"
+        android:onClick="registerNewUser"
         android:text="Registrarse"
         android:background="#ff6db32e"
         />

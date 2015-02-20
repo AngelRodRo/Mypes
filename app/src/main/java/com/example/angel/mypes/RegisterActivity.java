@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockActivity;
 import com.google.android.gms.maps.model.LatLng;
@@ -27,7 +28,7 @@ public class RegisterActivity extends SherlockActivity {
     EditText edtName;
     EditText edtLastName;
     EditText edtEmail;
-
+    JSONObject data;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,13 +39,20 @@ public class RegisterActivity extends SherlockActivity {
         edtLastName = (EditText) findViewById(R.id.edtLastName);
         edtEmail = (EditText) findViewById(R.id.edtEmail);
 
+
+
+    }
+
+
+    public void registerNewUser(View view)
+    {
         String username = edtUsername.getText().toString();
         String password = edtPassword.getText().toString();
         String name = edtName.getText().toString();
         String lastname = edtLastName.getText().toString();
         String email = edtEmail.getText().toString();
 
-        JSONObject data;
+
         try {
             data = new JSONObject();
             data.put("username", username);
@@ -53,23 +61,12 @@ public class RegisterActivity extends SherlockActivity {
             data.put("lastname",lastname);
             data.put("email",email);
             data.put("tipo","N");
-            registerNewUser(data);
         }catch (Exception e)
         {}
 
-
-
-    }
-
-
-    public void registerNewUser(final JSONObject user_data)
-    {
-        new AsyncTask<Void, Void, ListAdapter>() {
+        new AsyncTask<Void, Void, Boolean>() {
 
             private ProgressDialog pDialog;
-            JSONArray lugares;
-            JSONObject lugar;
-
 
             @Override
             protected void onPreExecute() {
@@ -82,42 +79,30 @@ public class RegisterActivity extends SherlockActivity {
             }
 
             @Override
-            protected ListAdapter doInBackground(Void... arg0) {
+            protected Boolean doInBackground(Void... arg0) {
                 // CREAMOS LA INSTANCIA DE LA CLASE
-                String jsonStr="";
-                ListAdapter listAdapter=null;
-
-                ArrayList<Place> data = new ArrayList<Place>();
-
+                Boolean jsonStr;
                 JSONParser sh = new JSONParser();
-                jsonStr = sh.makeServiceCall(Config.APP_SERVER_CATEGORY_PLACES, JSONParser.POST,user_data);
+                jsonStr = sh.makeServiceCall_B(Config.APP_SERVER_REGISTER_USER , JSONParser.POST,data);
 
-
-                if (jsonStr != null) {
-                    try {
-                        try {
-                            lugares = new JSONArray(jsonStr);
-                            //Toast.makeText(getApplicationContext(),longitude+ " "+ latitude,Toast.LENGTH_LONG).show();
-                        } catch (JSONException e) {
-                            Log.d("JSONException", e.toString());
-                        }
-
-                        // Getting JSON Array node
-                } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                } else {
-                    Log.e("ServiceHandler", "Esta habiendo problemas para cargar el JSON");
-                }
-
-                return listAdapter;
+                return jsonStr;
             }
 
             @Override
-            protected void onPostExecute(ListAdapter result) {
+            protected void onPostExecute(Boolean result) {
                 super.onPostExecute(result);
                 pDialog.dismiss();
 
+                if(result)
+                {
+                    Toast.makeText(RegisterActivity.this,"Registro realizado correctamente",Toast.LENGTH_LONG).show();
+                    finish();
+
+                }
+                else
+                {
+                    Toast.makeText(RegisterActivity.this,"No se registro por favor vuelva a intentarlo",Toast.LENGTH_LONG).show();
+                }
 
                 // Dismiss the progress dialog
 

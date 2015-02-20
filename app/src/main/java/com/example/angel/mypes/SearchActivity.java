@@ -21,6 +21,7 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
+import com.actionbarsherlock.widget.SearchView;
 
 import java.util.Locale;
 
@@ -32,7 +33,8 @@ public class SearchActivity extends SherlockFragmentActivity {
     EditText editsearch;
     Button btnSearch;
 
-
+    SearchManager searchManager;
+    SearchView sv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,36 +106,13 @@ public class SearchActivity extends SherlockFragmentActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getSupportMenuInflater().inflate(R.menu.menu_search, menu);
 
-        // Locate the EditText in menu.xml
-        editsearch = (EditText) menu.findItem(R.id.menu_search).getActionView();
 
-        editsearch.addTextChangedListener(textWatcher);
+        //Set searchView
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
 
-        MenuItem menuSearch = menu.findItem(R.id.menu_search);
-
-        menuSearch.setOnActionExpandListener(new MenuItem.OnActionExpandListener() {
-
-            // Menu Action Collapse
-            @Override
-            public boolean onMenuItemActionCollapse(MenuItem item) {
-                // Empty EditText to remove text filtering
-                editsearch.setText("");
-                editsearch.clearFocus();
-                return true;
-            }
-
-            // Menu Action Expand
-            @Override
-            public boolean onMenuItemActionExpand(MenuItem item) {
-                // Focus on EditText
-                editsearch.requestFocus();
-
-                // Force the keyboard to show on EditText focus
-                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
-                return true;
-            }
-        });
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchView.setIconifiedByDefault(false);
 
         // Show the settings menu item in menu.xml
         MenuItem menuSettings = menu.findItem(R.id.menu_settings);
@@ -154,7 +133,7 @@ public class SearchActivity extends SherlockFragmentActivity {
         return true;
     }
 
-    private TextWatcher textWatcher = new TextWatcher() {
+/*    private TextWatcher textWatcher = new TextWatcher() {
 
         @Override
         public void afterTextChanged(Editable s) {
@@ -178,7 +157,7 @@ public class SearchActivity extends SherlockFragmentActivity {
 
         }
 
-    };
+    };*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

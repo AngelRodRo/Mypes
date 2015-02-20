@@ -34,7 +34,7 @@
 
            android:hint="Usuario"
            android:gravity="center"
-           android:id="@+id/edtUserName"
+           android:id="@+id/edtLoginUserName"
            android:layout_marginTop="2dp" />
 
        <EditText
@@ -43,17 +43,18 @@
            android:gravity="center"
            android:hint="Contraseña"
            android:password="true"
-           android:id="@+id/edtPassword"/>
+           android:id="@+id/edtLoginPassword"/>
 
        <Button
            style="@style/MyButton_uno"
            android:text="Iniciar sesion"
-
+           android:onClick="onLogin"
            android:id="@+id/btnLogin" />
 
        <Button
            style="@style/MyButton_dos"
            android:text="Registrarse"
+           android:onClick="onRegister"
            android:id="@+id/btnRegister"
            android:background="#b3b3b3" />
 
