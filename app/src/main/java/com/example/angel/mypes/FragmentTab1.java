@@ -73,7 +73,9 @@ public class FragmentTab1 extends SherlockFragment {
 
     public void getPlacesCategory(final String category,final View view)
     {
-        new AsyncTask<Void, Void, ListAdapter>() {
+        new AsyncTask<Void, Void, ListAdapter>() {/*
+
+*/
 
             private ProgressDialog pDialog;
             JSONArray lugares;
