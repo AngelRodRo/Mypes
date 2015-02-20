@@ -34,9 +34,9 @@
             android:layout_height="wrap_content"
             android:textColor="#ff2984ff"
             android:textStyle="bold"
-            android:textSize="18dp"
+            android:textSize="@dimen/textsize_uno_entry_list"
             android:text="Oxigena"
-                />
+                android:textIsSelectable="false" />
 
             <TextView
                 android:id="@+id/textView_medio"
@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#ff8c8c8c"
                 android:text="En la esquina de la tia veneno"
-                />
+                android:textSize="@dimen/textsize_dos_entry_list" />
 
 
 

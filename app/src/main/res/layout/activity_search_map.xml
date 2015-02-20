@@ -5,13 +5,14 @@
 
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/layout_width_searchMap"
+        android:layout_height="@dimen/layout_height_searchMap"
         android:text="New Button"
         android:id="@+id/button"
         android:onClick="getJSONFromServer"
+        android:textSize="@dimen/textsize_searchMap"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="53dp" />
+        android:layout_marginBottom="@dimen/layout_marginBottom_searchMap" />
 
 </RelativeLayout>
