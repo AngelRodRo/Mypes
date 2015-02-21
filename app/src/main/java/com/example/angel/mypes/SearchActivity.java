@@ -3,6 +3,9 @@ package com.example.angel.mypes;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.drawable.Drawable;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
@@ -79,7 +82,29 @@ public class SearchActivity extends SherlockFragmentActivity {
             }
         };
 
-        tab = mActionBar.newTab().setText("Restaurante").setTabListener(tabListener);
+        Drawable icon = new Drawable() {
+            @Override
+            public void draw(Canvas canvas) {
+
+            }
+
+            @Override
+            public void setAlpha(int i) {
+
+            }
+
+            @Override
+            public void setColorFilter(ColorFilter colorFilter) {
+
+            }
+
+            @Override
+            public int getOpacity() {
+                return 0;
+            }
+        };
+
+        tab = mActionBar.newTab().setText("Restaurante").setTabListener(tabListener).setIcon(R.drawable._default);
         mActionBar.addTab(tab);
 
 
@@ -192,6 +217,8 @@ public class SearchActivity extends SherlockFragmentActivity {
 
     private void doSearch(String queryStr)
     {
+        Intent i = new Intent()
+
         Toast.makeText(getApplicationContext(),queryStr,Toast.LENGTH_LONG).show();
     }
 }

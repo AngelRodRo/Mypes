@@ -1,6 +1,7 @@
 package com.example.angel.mypes;
 
 import android.app.ProgressDialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,16 +10,20 @@ import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,6 +52,11 @@ public class MypeActivity extends SherlockActivity {
     Place placea;
     ListView list;
     ImageView imgViewFondo;
+    String telefono;
+    String latitude;
+    String longitude;
+    ListAdapter listAdapter;
+
 
     ImageView myImage;
     @Override
@@ -64,10 +74,33 @@ public class MypeActivity extends SherlockActivity {
 
         String id = getIntent().getStringExtra("id");
 
+        final ScrollView scrollView = (ScrollView) findViewById(R.id.scrollview);
         list = (ListView)findViewById(R.id.listView);
 
         getPlacesCategory(Integer.parseInt(id));
 
+        list.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                scrollView.requestDisallowInterceptTouchEvent(true);
+                int action = motionEvent.getActionMasked();
+
+                switch (action){
+                    case MotionEvent.ACTION_UP:
+                        scrollView.requestDisallowInterceptTouchEvent(false);
+                        break;
+                }
+                return false;
+            }
+        });
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(MypeActivity.this,CommentActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void getPlacesCategory(final int id)
@@ -94,7 +127,7 @@ public class MypeActivity extends SherlockActivity {
                 // CREAMOS LA INSTANCIA DE LA CLASE
                 String jsonStr="";
                 JSONObject jsonparam;
-                ArrayList<ArrayList<String>> arrayComentarios = new ArrayList<ArrayList<String>>();
+                ArrayList<Comentario> arrayComentarios = new ArrayList<Comentario>();
                 ArrayList<String> datos = new ArrayList<String>();
                 Bitmap bitmap=null;
 
@@ -139,10 +172,8 @@ public class MypeActivity extends SherlockActivity {
                                 String fecha = comentario.getString("fecha");
                                 String usuario = comentario.getString("usuario");
 
-                                datos.add(opinion);
-                                datos.add(fecha);
-                                datos.add(usuario);
-                                arrayComentarios.add(datos);
+
+                                arrayComentarios.add(new Comentario(opinion,fecha,usuario));
                             }
 
                             JSONArray fotos = lugar.getJSONArray("fotos");
@@ -182,16 +213,33 @@ public class MypeActivity extends SherlockActivity {
                 //Drawable foto = LoadImageFromWebOperations("http://3.bp.blogspot.com/-8ve3Fp7BQeA/UHPM2CPY60I/AAAAAAAADOY/JUty7z2uWOE/s1600/1920x1080-Blue-Waves-Beach-Wallpaper1080p-HD.jpeg");
                   //customFont.setText(result.getName());
                 txtDescription.setText(result.getDescription());
-                ArrayList<String> arrayList = new ArrayList<String>();
-                for(int i=0;i<result.getComments().size();i++)
-                    arrayList.add(result.getComments().get(i).get(0));
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(MypeActivity.this,android.R.layout.simple_list_item_1,arrayList);
-                list.setAdapter(adapter);
+                telefono = result.getPhone().toString();
+                latitude = String.valueOf(result.getPosition().latitude);
+                longitude = String.valueOf(result.getPosition().longitude);
+                listAdapter = new ListAdapter(MypeActivity.this,R.layout.comentario,result.getComments()) {
+                    @Override
+                    public void onEntrada(Object entrada, View view) {
+                        if (entrada != null) {
+                            TextView textNombre = (TextView) view.findViewById(R.id.textView_nombre);
+                            if (textNombre != null)
+                                textNombre.setText(((Comentario) entrada).getUsuario());
 
+                            TextView textComentario = (TextView) view.findViewById(R.id.textView_comentario);
+                            if (textComentario != null) {
+                                textComentario.setText(((Comentario) entrada).getOpinion());
+                            }
+                            TextView textTiempo = (TextView) view.findViewById(R.id.textView_tiempo);
+                            if (textTiempo != null)
+                                textTiempo.setText(((Comentario) entrada).getFecha());
+                        }
+                    }
+               };
+
+                list.setAdapter(listAdapter);
                 myImage.setImageBitmap(result.getFoto());
 
-
             }
+
         }.execute(null, null, null);
     }
 
@@ -199,6 +247,13 @@ public class MypeActivity extends SherlockActivity {
     public void accionLlamar(View view)
     {
 
+        try {
+            Intent callIntent = new Intent(Intent.ACTION_CALL);
+            callIntent.setData(Uri.parse("tel:"+telefono));
+            startActivity(callIntent);
+        } catch (ActivityNotFoundException activityException) {
+            Log.e("dialing-example", "Call failed", activityException);
+        }
     }
 
     public void accionGaleria (View view){
@@ -209,6 +264,12 @@ public class MypeActivity extends SherlockActivity {
         startActivity(intentGaleria);
     }
 
+    public void accionIrMapa(View view){
+        Intent intentMapa = new Intent(MypeActivity.this,MapActivity.class);
+        intentMapa.putExtra("latitude",latitude);
+        intentMapa.putExtra("longitude",longitude);
+        startActivity(intentMapa);
+    }
 
     public void accionComentar(View view) {
         final SharedPreferences prefs = getSharedPreferences(
