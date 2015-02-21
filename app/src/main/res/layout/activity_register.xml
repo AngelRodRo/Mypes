@@ -11,51 +11,46 @@
     android:weightSum="1">
 
     <EditText
-        android:layout_width="250dp"
-        android:layout_height="50dp"
+        style="@style/MyEdidth_Registro"
         android:background="#FFFFFF"
         android:hint="Usuario"
         android:gravity="center"
         android:id="@+id/edtUserName"
 
-        android:layout_marginTop="28dp" />
+        android:layout_marginTop="8dp" />
 
     <EditText
-        android:layout_width="250dp"
-        android:layout_height="50dp"
+        style="@style/MyEdidth_Registro"
         android:background="#FFFFFF"
         android:hint="Contraseña"
         android:password="true"
         android:gravity="center"
         android:id="@+id/edtPassword"
-        android:layout_marginTop="13dp"/>
+        android:layout_marginTop="@dimen/layout_marginTop_edith_register"/>
 
     <EditText
-        android:layout_width="250dp"
-        android:layout_height="50dp"
+        style="@style/MyEdidth_Registro"
         android:background="#FFFFFF"
         android:hint="Nombre"
         android:gravity="center"
         android:id="@+id/edtName"
-        android:layout_marginTop="13dp" />
+        android:layout_marginTop="@dimen/layout_marginTop_edith_register" />
 
     <EditText
-        android:layout_width="250dp"
-        android:layout_height="50dp"
+        style="@style/MyEdidth_Registro"
         android:background="#FFFFFF"
         android:hint="Apellido"
         android:gravity="center"
         android:id="@+id/edtLastName"
-        android:layout_marginTop="13dp" />
+        android:layout_marginTop="@dimen/layout_marginTop_edith_register" />
 
     <EditText
-        android:layout_width="250dp"
-        android:layout_height="50dp"
+        style="@style/MyEdidth_Registro"
         android:background="#FFFFFF"
         android:hint="Correo"
         android:gravity="center"
         android:id="@+id/edtEmail"
-        android:layout_marginTop="13dp"/>
+        android:layout_marginTop="@dimen/layout_marginTop_edith_register"/>
 
 <LinearLayout
     android:layout_width="fill_parent"
@@ -69,13 +64,13 @@
 
 
         android:id="@+id/btnRegisterAction"
-        android:layout_marginTop="15dp"
-        android:layout_width="200dp"
-        android:layout_height="70dp"
+        android:layout_marginTop="@dimen/layout_marginTop_button_register"
+        android:layout_width="@dimen/layout_width_button_register"
+        android:layout_height="@dimen/layout_height_button_register"
         android:onClick="registerNewUser"
         android:text="Registrarse"
         android:background="#ff6db32e"
-        />
+        android:textSize="@dimen/textsize_register_button" />
 
     </LinearLayout>
 

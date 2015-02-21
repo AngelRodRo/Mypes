@@ -28,4 +28,38 @@
         <item name="android:layout_marginTop">@dimen/layout_marginTop_button</item>
         <item name="android:background">#b3b3b3</item>
     </style>
+
+    <style name="MyButton_inicio">
+        <item name="android:layout_width"></item>
+        <item name="android:layout_height"></item>
+        <item name="android:textSize"></item>
+        <item name="android:layout_marginTop"></item>
+        <item name="android:textColor"></item>
+
+    </style>
+
+    <style name="MyList_entry_empresa">
+        <item name="android:textSize"></item>
+        <item name="android:textColor"></item>
+    </style>
+    <style name="MyList_entry_direccion">
+        <item name="android:textSize"></item>
+        <item name="android:textColor"></item>
+    </style>
+    <style name="MyActivity_Mype">
+        <item name="android:textSize"></item>
+        <item name="android:textColor"></item>
+    </style>
+
+    <style name="MyActivity_Mype_List_text">
+        <item name="android:textSize"></item>
+        <item name="android:textColor"></item>
+    </style>
+    
+    <style name="MyEdidth_Registro">
+        <item name="android:layout_width">@dimen/layout_width_edith_register</item>
+        <item name="android:layout_height">@dimen/layout_height_edith_register</item>
+        <item name="android:layout_marginTop">@dimen/layout_marginTop_edith_register</item>
+        <item name="android:textSize">@dimen/textsize_register</item>
+    </style>
 </resources>

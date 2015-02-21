@@ -7,16 +7,18 @@
     tools:context="com.example.angel.mypes.SelectActivity">
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/layout_width_button_uno_select"
+        android:layout_height="@dimen/layout_height_button_dos_select"
+        android:textSize="@dimen/textsize_register"
         android:text="New Button"
         android:id="@+id/button2"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/layout_width_button_uno_select"
+        android:layout_height="@dimen/layout_height_button_dos_select"
+        android:textSize="@dimen/textsize_register"
         android:text="New Button"
         android:id="@+id/button3"
         android:layout_below="@+id/button2"
