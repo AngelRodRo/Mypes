@@ -11,28 +11,23 @@
     <dimen name="layout_marginTop_edith">2dp</dimen>
     <dimen name="layout_height_layout_image">180dp</dimen>
 
-    <!--DIMENSIONES PARA LAYOUT DE ACTIVITY INICIO-->
 
-    <dimen name="layout_width_button_inicio"></dimen>
-    <dimen name="layout_height_button_inicio"></dimen>
-    <dimen name="layout_marginTop_inicio"></dimen>
-    <dimen name="textSize_inicio"></dimen>
 
     <!--DIMENSIONES PARA LAYOUT DE ACTIVITY ENTRY-->
       <dimen name="textsize_uno_entry_list">18sp</dimen>
       <dimen name="textsize_dos_entry_list">13sp</dimen>
 
     <!--DIMENSIONES PARA LAYOUT DE ACTIVITY MYPE-->
-    <dimen name="layout_width_Mype_button"></dimen>
-    <dimen name="layout_height_Mype_button"></dimen>
-    <dimen name="layout_widht_Mype_Edith"></dimen>
-    <dimen name="layout_height_Mype_Edith"></dimen>
-    <dimen name="textsize_txtDescripcion"></dimen>
-    <dimen name="textsize_ListComentarios"></dimen>
-    <dimen name="textsize_Edith"></dimen>
-    <dimen name="textsize_button"></dimen>
-    <dimen name="layout_width_imagen"></dimen>
-    <dimen name="layout_height_imagen"></dimen>
+    <!--   <dimen name="layout_width_Mype_button"></dimen>
+       <dimen name="layout_height_Mype_button"></dimen>
+       <dimen name="layout_widht_Mype_Edith"></dimen>
+       <dimen name="layout_height_Mype_Edith"></dimen>
+       <dimen name="textsize_txtDescripcion"></dimen>
+       <dimen name="textsize_ListComentarios"></dimen>
+       <dimen name="textsize_Edith"></dimen>
+       <dimen name="textsize_button"></dimen>
+       <dimen name="layout_width_imagen"></dimen>
+       <dimen name="layout_height_imagen"></dimen>-->
 
     <!--DIMENSIONES PARA LAYOUT DE ACTIVITY REGISTRE-->
     <dimen name="layout_width_edith_register">250dp</dimen>
@@ -50,10 +45,5 @@
     <dimen name="layout_marginBottom_searchMap">43dp</dimen>
     <dimen name="textsize_searchMap">16sp</dimen>
 
-    <!--DIMENSIONES PARA LAYOUT ACTIVITY SELECT-->
 
-    <dimen name="layout_width_button_uno_select"></dimen>
-    <dimen name="layout_height_button_dos_select"></dimen>
-    <dimen name="layout_marginTop_select"></dimen>
-    <dimen name="textsize_select"></dimen>
 </resources>
