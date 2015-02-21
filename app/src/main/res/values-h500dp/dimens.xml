@@ -17,19 +17,22 @@
     <dimen name="textsize_dos_entry_list">14sp</dimen>
 
     <!--DIMENSIONES PARA LAYOUT DE ACTIVITY MYPE-->
- <!--   <dimen name="layout_width_Mype_button"></dimen>
-    <dimen name="layout_height_Mype_button"></dimen>
-    <dimen name="layout_widht_Mype_Edith"></dimen>
-    <dimen name="layout_height_Mype_Edith"></dimen>
-    <dimen name="textsize_txtDescripcion"></dimen>
-    <dimen name="textsize_ListComentarios"></dimen>
-    <dimen name="textsize_Edith"></dimen>
-    <dimen name="textsize_button"></dimen>
-    <dimen name="layout_width_imagen"></dimen>
-    <dimen name="layout_height_imagen"></dimen>-->
+    <dimen name="layout_width_Mype_button">130dp</dimen>
+    <dimen name="layout_height_Mype_button">60dp</dimen>
+    <dimen name="layout_marginRight_Mype">10dp</dimen>
+    <dimen name="layout_marginTop_Mype">10dp</dimen>
+    <dimen name="layout_marginAll_Mype">10dp</dimen>
+    <dimen name="layout_height_Mype_Edith">60dp</dimen>
+    <dimen name="textsize_txtDescripcion">16sp</dimen>
+    <dimen name="textsize_button">18sp</dimen>
+    <dimen name="layout_marginLeft_Mype">20dp</dimen>
+
+    <!--MYPES BOTONES ROJOS-->
+    <dimen name="layout_width_Mype_Rojouno">140dp</dimen>
+    <dimen name="layout_height_Mype_Rojouno">50dp</dimen>
 
     <!--DIMENSIONES PARA LAYOUT DE ACTIVITY REGISTRE-->
-    <dimen name="layout_width_edith_register">250dp</dimen>
+   <dimen name="layout_width_edith_register">250dp</dimen>
     <dimen name="layout_height_edith_register">55dp</dimen>
     <dimen name="layout_width_button_register">200dp</dimen>
     <dimen name="layout_height_button_register">55dp</dimen>

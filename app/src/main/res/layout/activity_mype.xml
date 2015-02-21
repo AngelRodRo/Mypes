@@ -1,145 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:id="@+id/scrollview">
-
-<LinearLayout
-
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:gravity="center"
-    android:id="@+id/alvaro">
+    android:layout_width="match_parent" android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+
         android:orientation="vertical"
-        android:weightSum="1">
-
-        <ImageView
-            android:layout_width="397dp"
-            android:layout_height="200dp"
-            android:id="@+id/my_image"
-            android:layout_gravity="center_horizontal"
-            android:scaleType="fitXY" />
-
-
-        <RatingBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/ratingBar"
-            android:layout_gravity="left"/>
-
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:id="@+id/alvaro">
 
         <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal">
+            android:orientation="vertical"
+            android:weightSum="1"
+            android:id="@+id/julio">
 
-            <Button
+            <ImageView
+                android:layout_width="397dp"
+                android:layout_height="200dp"
+                android:id="@+id/my_image"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="fitXY" />
+
+
+            <RatingBar
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Llamar"
-                android:onClick="accionLlamar"
-                android:id="@+id/btnCall"
-                />
+                android:id="@+id/ratingBar"
+                android:numStars = "5"
+                android:stepSize = "1.0"
+                android:rating = "1.0"
+                android:layout_gravity="left" />
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
+                <Button
+                    android:layout_width="@dimen/layout_width_Mype_Rojouno"
+                    android:layout_height="@dimen/layout_height_Mype_Rojouno"
+                    android:text="Llamar"
+                    android:background="#FF6E40"
+                    android:padding="7dp"
+                    android:layout_margin="3dp"
+                    android:drawableLeft="@drawable/telef"
+                    android:textSize="@dimen/textsize_button"
+                    android:id="@+id/btnCall"/>
+
+                <Button
+                    android:layout_width="@dimen/layout_width_Mype_Rojouno"
+                    android:layout_height="@dimen/layout_height_Mype_Rojouno"
+                    android:text="Suscribirse"
+                    android:background="#FF6E40"
+                    android:layout_margin="3dp"
+                    android:padding="7dp"
+                    android:drawableLeft="@drawable/mano"
+                    android:id="@+id/btnSuscripcion"
+                    android:textSize="@dimen/textsize_button" />
+
+            </LinearLayout>
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Suscribirse"
-                android:id="@+id/btnSuscripcion" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/layout_width_Mype_Rojouno"
+                android:layout_height="@dimen/layout_height_Mype_Rojouno"
                 android:text="Agendar"
-                android:id="@+id/btnAgendar" />
-        </LinearLayout>
+                android:layout_margin="3dp"
+                android:background="#FF6E40"
+                android:padding="7dp"
+                android:drawableLeft="@drawable/diario"
+                android:id="@+id/btnAgendar"
+                android:textSize="@dimen/textsize_button"
+                android:layout_gravity="center_horizontal" />
 
-        <TextView
-            android:padding="20dp"
-            android:background="#35cacaca"
-            android:textStyle="italic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ubicado a 2 cuadras de la Plaza de Armas, el Gran Hotel Tacna tiene 62 años recibiendo a las más grandes personalidades que han visitado nuestra Ciudad Heroica, sobresaliendo orgullosamente como la mejor opción para visitantes de negocios y ocio."
-            android:id="@+id/txtDescription"
-
-            android:layout_margin="20dp"
-            android:layout_marginTop="10dp" />
-
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:weightSum="1">
-
+            <TextView
+                android:padding="20dp"
+                android:background="#35cacaca"
+                android:textStyle="italic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ubicado a 2 cuadras de la Plaza de Armas, el Gran Hotel Tacna tiene 62 años recibiendo a las más grandes personalidades que han visitado nuestra Ciudad Heroica, sobresaliendo orgullosamente como la mejor opción para visitantes de negocios y ocio."
+                android:id="@+id/txtDescription"
+                android:textSize="@dimen/textsize_txtDescripcion"
+                android:layout_margin="@dimen/layout_marginAll_Mype" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Large Text"
-                android:id="@+id/textView" />
+                android:textSize="@dimen/textsize_txtDescripcion"
+                android:textColor="#6c7b7b7b"
+                android:text="las americas M.w Lt.11"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/layout_marginRight_Mype" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#6c7b7b7b"
+
+                android:text="996347066"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/layout_marginRight_Mype"
+                android:textSize="@dimen/textsize_txtDescripcion" />
+
 
             <Button
-                android:layout_width="140dp"
-                android:layout_height="wrap_content"
+                android:layout_width="170dp"
+                android:padding="9dp"
+                android:layout_height="80dp"
                 android:text="Galeria"
                 android:id="@+id/btnGalery"
-                android:onClick="accionGaleria" />
+                android:onClick="accionGaleria"
+                android:background="#FF6E40"
+                android:textSize="@dimen/textsize_button"
+                android:drawableLeft="@drawable/foto"
+                android:layout_gravity="right"
+                android:layout_marginTop="@dimen/layout_marginTop_Mype"
+                android:layout_marginRight="@dimen/layout_marginRight_Mype" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/layout_marginAll_Mype"
+                android:gravity="right">
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/layout_height_Mype_Edith"
+                    android:inputType="textMultiLine"
+                    android:layout_marginRight="10dp"
+                    android:ems="10"
+                    android:id="@+id/editText" />
+
+                <Button
+                    android:layout_width="@dimen/layout_width_Mype_button"
+                    android:layout_height="@dimen/layout_height_Mype_button"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:text="Comentar"
+                    android:onClick="accionComentar"
+                    android:id="@+id/button4"
+                    android:background="#ff5a96ff"
+                    android:textSize="@dimen/textsize_button" />
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
+                android:layout_height="273dp">
+            </ListView>
         </LinearLayout>
 
-        <LinearLayout
-           android:layout_width="fill_parent"
-           android:layout_height="fill_parent"
-           android:orientation="horizontal"
-           android:layout_margin="10dp"
-           android:gravity="right">
-           <EditText
-               android:layout_width="wrap_content"
-               android:layout_height="70dp"
-               android:inputType="textMultiLine"
-               android:layout_marginRight="10dp"
-               android:ems="10"
-               android:id="@+id/editText" />
 
-           <Button
-               android:layout_width="130dp"
-               android:layout_height="70dp"
-               android:textColor="#FFFFFF"
-               android:textStyle="bold"
-               android:text="Comentar"
-               android:onClick="accionComentar"
-               android:id="@+id/button4"
-               android:background="#ff5a96ff"
-               />
-           </LinearLayout>
-
-        <ListView
-            android:id="@+id/listView"
-            android:layout_width="match_parent"
-            android:layout_height="273dp">
-
-        </ListView>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Como llegar"
-            android:id="@+id/btnGotoMap"
-            android:layout_gravity="center_horizontal"
-            android:onClick="accionIrMapa"/>
 
     </LinearLayout>
-
-
-
-</LinearLayout>
 
 </ScrollView>

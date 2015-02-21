@@ -32,14 +32,16 @@
                 android:id="@+id/textView_nombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#ffff4575"
+                android:textColor="#ff000000"
                 android:textStyle="bold"
-                android:textSize="18dp" />
+                android:textSize="17dp"
+                android:text="Julio gay"
+                />
             <TextView
                 android:id="@+id/textView_tiempo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#ff8c8c8c"
+                android:textColor="#778c8c8c"
                 android:textSize="11dp"
                 android:text="1 hora ago"
                 android:layout_gravity="right"
@@ -51,6 +53,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#ff8c8c8c"
 
+                android:text="Este es mejor comentario de la historia wipu..."
                 />
 
 
