@@ -21,7 +21,7 @@
     <dimen name="textsize_dos_entry_list">13sp</dimen>
 
     <!--DIMENSIONES PARA LAYOUT DE ACTIVITY MYPE-->
-
+<!--
     <dimen name="layout_width_Mype_button">130dp</dimen>
     <dimen name="layout_height_Mype_button">60dp</dimen>
     <dimen name="layout_width_Mype_galeria"></dimen>
@@ -36,7 +36,7 @@
 
     <dimen name="layout_width_imagen"></dimen>
     <dimen name="layout_height_imagen"></dimen>
-
+-->
     <!--DIMENSIONES PARA LAYOUT DE ACTIVITY REGISTRE-->
 
     <dimen name="layout_width_edith_register">250dp</dimen>
