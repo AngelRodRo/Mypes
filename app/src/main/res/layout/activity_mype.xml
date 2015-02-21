@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:weightSum="1"
-        android:id="@+id/">
+        android:id="@+id/julio">
 
         <ImageView
             android:layout_width="397dp"
