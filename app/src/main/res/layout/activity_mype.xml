@@ -85,7 +85,8 @@
             android:id="@+id/btnGalery"
             android:onClick="accionGaleria"
             android:textSize="@dimen/textsize_button"
-            android:layout_gravity="right" />
+            android:layout_gravity="right"
+            android:layout_marginRight="10dp" />
 
         <LinearLayout
            android:layout_width="fill_parent"
