@@ -15,7 +15,6 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -101,12 +100,12 @@
             android:label="@string/title_activity_activity_login" >
         </activity>
         <activity
-            android:name=".CommentActivity"
-            android:label="@string/title_activity_comment" >
+            android:name=".anima"
+            android:label="@string/title_activity_anima" >
         </activity>
         <activity
-            android:name=".ListMypeActivity"
-            android:label="@string/title_activity_list_mype" >
+            android:name=".Anima"
+            android:label="@string/title_activity_anima" >
         </activity>
     </application>
 
