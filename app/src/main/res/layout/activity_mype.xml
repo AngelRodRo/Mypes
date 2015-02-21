@@ -46,24 +46,37 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Llamar"
+                android:background="#FF6E40"
+                android:padding="7dp"
+                android:layout_margin="3dp"
+                android:drawableLeft="@drawable/telef"
                 android:textSize="@dimen/textsize_button"
-                android:id="@+id/btnCall"
-                />
+                android:id="@+id/btnCall"/>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Suscribirse"
+                android:background="#FF6E40"
+                android:layout_margin="3dp"
+                android:padding="7dp"
+                android:drawableLeft="@drawable/mano"
                 android:id="@+id/btnSuscripcion"
                 android:textSize="@dimen/textsize_button" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Agendar"
-                android:id="@+id/btnAgendar"
-                android:textSize="@dimen/textsize_button" />
         </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Agendar"
+            android:layout_margin="3dp"
+            android:background="#FF6E40"
+            android:padding="7dp"
+            android:drawableLeft="@drawable/diario"
+            android:id="@+id/btnAgendar"
+            android:textSize="@dimen/textsize_button"
+            android:layout_gravity="center_horizontal" />
 
         <TextView
             android:padding="20dp"
@@ -74,17 +87,34 @@
             android:text="Ubicado a 2 cuadras de la Plaza de Armas, el Gran Hotel Tacna tiene 62 años recibiendo a las más grandes personalidades que han visitado nuestra Ciudad Heroica, sobresaliendo orgullosamente como la mejor opción para visitantes de negocios y ocio."
             android:id="@+id/txtDescription"
             android:textSize="@dimen/textsize_txtDescripcion"
-            android:layout_margin="20dp"
-            android:layout_marginTop="10dp" />
+            android:layout_margin="10dp"
+            android:layout_marginTop="20dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:textColor="#6c7b7b7b"
+            android:text="las americas M.w Lt.11"
+            android:layout_gravity="right" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#6c7b7b7b"
+
+            android:text="996347066"
+            android:layout_gravity="right" />
 
 
         <Button
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
+            android:layout_width="170dp"
+            android:padding="9dp"
+            android:layout_height="80dp"
             android:text="Galeria"
             android:id="@+id/btnGalery"
             android:onClick="accionGaleria"
+            android:background="#FF6E40"
             android:textSize="@dimen/textsize_button"
+            android:drawableLeft="@drawable/foto"
             android:layout_gravity="right" />
 
         <LinearLayout
