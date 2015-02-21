@@ -99,6 +99,14 @@
             android:name=".ActivityLogin"
             android:label="@string/title_activity_activity_login" >
         </activity>
+        <activity
+            android:name=".anima"
+            android:label="@string/title_activity_anima" >
+        </activity>
+        <activity
+            android:name=".Anima"
+            android:label="@string/title_activity_anima" >
+        </activity>
     </application>
 
 </manifest>
