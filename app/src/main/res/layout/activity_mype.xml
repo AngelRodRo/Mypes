@@ -33,7 +33,7 @@
                 android:numStars = "5"
                 android:stepSize = "1.0"
                 android:rating = "1.0"
-                android:layout_gravity="left"/>
+                android:layout_gravity="left" />
 
 
             <LinearLayout
@@ -43,8 +43,8 @@
                 android:gravity="center_horizontal">
 
                 <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/layout_width_Mype_Rojouno"
+                    android:layout_height="@dimen/layout_height_Mype_Rojouno"
                     android:text="Llamar"
                     android:background="#FF6E40"
                     android:padding="7dp"
@@ -54,8 +54,8 @@
                     android:id="@+id/btnCall"/>
 
                 <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/layout_width_Mype_Rojouno"
+                    android:layout_height="@dimen/layout_height_Mype_Rojouno"
                     android:text="Suscribirse"
                     android:background="#FF6E40"
                     android:layout_margin="3dp"
@@ -67,8 +67,8 @@
             </LinearLayout>
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/layout_width_Mype_Rojouno"
+                android:layout_height="@dimen/layout_height_Mype_Rojouno"
                 android:text="Agendar"
                 android:layout_margin="3dp"
                 android:background="#FF6E40"
@@ -87,22 +87,24 @@
                 android:text="Ubicado a 2 cuadras de la Plaza de Armas, el Gran Hotel Tacna tiene 62 años recibiendo a las más grandes personalidades que han visitado nuestra Ciudad Heroica, sobresaliendo orgullosamente como la mejor opción para visitantes de negocios y ocio."
                 android:id="@+id/txtDescription"
                 android:textSize="@dimen/textsize_txtDescripcion"
-                android:layout_margin="10dp"
-                android:layout_marginTop="20dp" />
+                android:layout_margin="@dimen/layout_marginAll_Mype" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16dp"
+                android:textSize="@dimen/textsize_txtDescripcion"
                 android:textColor="#6c7b7b7b"
                 android:text="las americas M.w Lt.11"
-                android:layout_gravity="right" />
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/layout_marginRight_Mype" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#6c7b7b7b"
 
                 android:text="996347066"
-                android:layout_gravity="right" />
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/layout_marginRight_Mype"
+                android:textSize="@dimen/textsize_txtDescripcion" />
 
 
             <Button
@@ -115,16 +117,18 @@
                 android:background="#FF6E40"
                 android:textSize="@dimen/textsize_button"
                 android:drawableLeft="@drawable/foto"
-                android:layout_gravity="right" />
+                android:layout_gravity="right"
+                android:layout_marginTop="@dimen/layout_marginTop_Mype"
+                android:layout_marginRight="@dimen/layout_marginRight_Mype" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:orientation="horizontal"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/layout_marginAll_Mype"
                 android:gravity="right">
                 <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="@dimen/layout_height_Mype_Edith"
                     android:inputType="textMultiLine"
                     android:layout_marginRight="10dp"
@@ -147,9 +151,7 @@
                 android:id="@+id/listView"
                 android:layout_width="match_parent"
                 android:layout_height="273dp">
-
             </ListView>
-
         </LinearLayout>
 
 
