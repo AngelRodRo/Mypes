@@ -56,6 +56,7 @@ public class MypeActivity extends SherlockActivity {
     String latitude;
     String longitude;
     ListAdapter listAdapter;
+    String titulo;
 
 
     ImageView myImage;
@@ -67,6 +68,8 @@ public class MypeActivity extends SherlockActivity {
         //customFont = (TextView)findViewById(R.id.txtTitle);
         Typeface fontusuario = Typeface.createFromAsset(getAssets(),"BNMachine.ttf");
         //customFont.setTypeface(fontusuario);
+
+
 
         myImage = (ImageView) this.findViewById(R.id.my_image);
 
@@ -101,6 +104,8 @@ public class MypeActivity extends SherlockActivity {
                 startActivity(intent);
             }
         });
+
+        getSupportActionBar().setTitle(titulo);
     }
 
     public void getPlacesCategory(final int id)
@@ -154,7 +159,7 @@ public class MypeActivity extends SherlockActivity {
                         for (int i = 0; i < lugares.length(); i++) {
                             lugar = lugares.getJSONObject(i);
 
-                            String nombre = lugar.getString("nombre");
+                            titulo = lugar.getString("nombre");
                             String direccion = lugar.getString("direccion");
                             String telefono = lugar.getString("telefono");
                             JSONObject jsonObject = lugar.getJSONObject("ubicacion");
@@ -190,7 +195,7 @@ public class MypeActivity extends SherlockActivity {
                             }
 
 
-                            place = new Place(nombre,bitmap,direccion,telefono, new LatLng(latitude,longitude),categoria,arrayComentarios,"",descripcion,afotos);
+                            place = new Place(titulo,bitmap,direccion,telefono, new LatLng(latitude,longitude),categoria,arrayComentarios,"",descripcion,afotos);
 
                         }
 
@@ -243,6 +248,11 @@ public class MypeActivity extends SherlockActivity {
         }.execute(null, null, null);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
 
     public void accionLlamar(View view)
     {

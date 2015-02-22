@@ -25,12 +25,12 @@ import java.util.ArrayList;
 public class FragmentTab3 extends SherlockFragment{
 
     ListView lv;
-
+    View view;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Get the view from fragmenttab3.xml
-        View view = inflater.inflate(R.layout.fragmenttab3, container, false);
+        view = inflater.inflate(R.layout.fragmenttab3, container, false);
         lv = (ListView) view.findViewById(R.id.listView4);
         getPlacesCategory("Diversion Nocturna",view);
 
@@ -41,6 +41,12 @@ public class FragmentTab3 extends SherlockFragment{
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         setUserVisibleHint(true);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getPlacesCategory("Diversion Nocturna",view);
     }
 
     public void getPlacesCategory(final String category,final View view)
@@ -56,7 +62,7 @@ public class FragmentTab3 extends SherlockFragment{
             protected void onPreExecute() {
                 super.onPreExecute();
                 pDialog = new ProgressDialog(view.getContext());
-                pDialog.setMessage("Getting Data ...");
+                pDialog.setMessage("Obteniendo lugares..");
                 pDialog.setIndeterminate(false);
                 pDialog.setCancelable(true);
                 pDialog.show();

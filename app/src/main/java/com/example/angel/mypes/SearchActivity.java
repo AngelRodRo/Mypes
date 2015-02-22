@@ -3,7 +3,9 @@ package com.example.angel.mypes;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.FragmentManager;
@@ -13,9 +15,13 @@ import android.support.v4.view.ViewPager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.actionbarsherlock.app.ActionBar;
@@ -25,6 +31,8 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.widget.SearchView;
+
+import org.w3c.dom.Text;
 
 import java.util.Locale;
 
@@ -48,6 +56,7 @@ public class SearchActivity extends SherlockFragmentActivity {
         mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
         mPager = (ViewPager) findViewById(R.id.pager);
+
 
         FragmentManager fm = getSupportFragmentManager();
 
@@ -82,45 +91,83 @@ public class SearchActivity extends SherlockFragmentActivity {
             }
         };
 
-        Drawable icon = new Drawable() {
-            @Override
-            public void draw(Canvas canvas) {
+        LayoutInflater inflater1 = (LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater2 = (LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater3 = (LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater4 = (LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater5 = (LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater6 = (LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-            }
+        LinearLayout customLinear1 = (LinearLayout) inflater1.inflate(R.layout.customtextview,null);
 
-            @Override
-            public void setAlpha(int i) {
+        TextView textView1 = (TextView)  customLinear1.findViewById(R.id.textView2);
+        textView1.setText("Restaurante");
+        textView1.setTextColor(Color.WHITE);
 
-            }
+        ImageView imageView1 = (ImageView) customLinear1.findViewById(R.id.imageView2);
+        imageView1.setImageResource(R.drawable.restaurant);
 
-            @Override
-            public void setColorFilter(ColorFilter colorFilter) {
-
-            }
-
-            @Override
-            public int getOpacity() {
-                return 0;
-            }
-        };
-
-        tab = mActionBar.newTab().setText("Restaurante").setTabListener(tabListener).setIcon(R.drawable._default);
+        tab = mActionBar.newTab().setCustomView(customLinear1).setTabListener(tabListener);
         mActionBar.addTab(tab);
 
+        LinearLayout customLinear2 = (LinearLayout) inflater2.inflate(R.layout.customtextview,null);
 
-        tab = mActionBar.newTab().setText("Vestimenta").setTabListener(tabListener);
+        TextView textView2 = (TextView)  customLinear2.findViewById(R.id.textView2);
+        textView2.setText("Vestimenta");
+        textView2.setTextColor(Color.WHITE);
+
+        ImageView imageView2 = (ImageView) customLinear2.findViewById(R.id.imageView2);
+        imageView2.setImageResource(R.drawable.shirt);
+
+        tab = mActionBar.newTab().setCustomView(customLinear2).setTabListener(tabListener);
         mActionBar.addTab(tab);
 
-        tab = mActionBar.newTab().setText("Diversion Nocturna").setTabListener(tabListener);
+        LinearLayout customLinear3 = (LinearLayout) inflater3.inflate(R.layout.customtextview,null);
+
+        TextView textView3 = (TextView)  customLinear3.findViewById(R.id.textView2);
+        textView3.setText("Diversion Nocturna");
+        textView3.setTextColor(Color.WHITE);
+
+        ImageView imageView3 = (ImageView) customLinear3.findViewById(R.id.imageView2);
+        imageView3.setImageResource(R.drawable.bar);
+
+        tab = mActionBar.newTab().setCustomView(customLinear3).setTabListener(tabListener);
         mActionBar.addTab(tab);
 
-        tab = mActionBar.newTab().setText("Salud").setTabListener(tabListener);
+        LinearLayout customLinear4 = (LinearLayout) inflater4.inflate(R.layout.customtextview,null);
+
+        TextView textView4 = (TextView)  customLinear4.findViewById(R.id.textView2);
+        textView4.setText("Salud");
+        textView4.setTextColor(Color.WHITE);
+
+        ImageView imageView4 = (ImageView) customLinear4.findViewById(R.id.imageView2);
+        imageView4.setImageResource(R.drawable.clinic);
+
+        tab = mActionBar.newTab().setCustomView(customLinear4).setTabListener(tabListener);
         mActionBar.addTab(tab);
 
-        tab = mActionBar.newTab().setText("Hospedaje").setTabListener(tabListener);
+        LinearLayout customLinear5 = (LinearLayout) inflater5.inflate(R.layout.customtextview,null);
+
+        TextView textView5 = (TextView)  customLinear5.findViewById(R.id.textView2);
+        textView5.setText("Hospedaje");
+        textView5.setTextColor(Color.WHITE);
+
+        ImageView imageView5 = (ImageView) customLinear5.findViewById(R.id.imageView2);
+        imageView5.setImageResource(R.drawable.clinic);
+
+        tab = mActionBar.newTab().setCustomView(customLinear5).setTabListener(tabListener);
         mActionBar.addTab(tab);
 
-        tab = mActionBar.newTab().setText("Ferias y comercios").setTabListener(tabListener);
+        LinearLayout customLinear6 = (LinearLayout) inflater6.inflate(R.layout.customtextview,null);
+
+        TextView textView6 = (TextView)  customLinear6.findViewById(R.id.textView2);
+        textView6.setText("Comercios");
+        textView6.setTextColor(Color.WHITE);
+
+        ImageView imageView6 = (ImageView) customLinear6.findViewById(R.id.imageView2);
+        imageView6.setImageResource(R.drawable.clinic);
+
+        tab = mActionBar.newTab().setCustomView(customLinear6).setTabListener(tabListener);
         mActionBar.addTab(tab);
 
     }
@@ -217,8 +264,9 @@ public class SearchActivity extends SherlockFragmentActivity {
 
     private void doSearch(String queryStr)
     {
-        Intent i = new Intent()
+        Intent i = new Intent(SearchActivity.this,ListMypeActivity.class);
+        i.putExtra("query",queryStr);
+        startActivity(i);
 
-        Toast.makeText(getApplicationContext(),queryStr,Toast.LENGTH_LONG).show();
     }
 }

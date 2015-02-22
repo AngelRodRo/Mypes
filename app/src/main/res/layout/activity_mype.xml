@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/scrollview">
 
     <LinearLayout
 
@@ -30,8 +31,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/ratingBar"
-                android:numStars = "5"
-                android:stepSize = "1.0"
+                android:isIndicator="true"
+                android:numStars = "4"
+                android:stepSize = "0.5"
                 android:rating = "1.0"
                 android:layout_gravity="left" />
 
@@ -49,6 +51,7 @@
                     android:background="#FF6E40"
                     android:padding="7dp"
                     android:layout_margin="3dp"
+                    android:onClick="accionLlamar"
                     android:drawableLeft="@drawable/telef"
                     android:textSize="@dimen/textsize_button"
                     android:id="@+id/btnCall"/>
@@ -153,6 +156,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="273dp">
             </ListView>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ir al mapa"
+                android:onClick="accionIrMapa"
+                android:id="@+id/button2"
+                android:layout_gravity="center_horizontal" />
         </LinearLayout>
 
 

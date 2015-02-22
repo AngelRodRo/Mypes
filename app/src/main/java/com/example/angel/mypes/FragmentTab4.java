@@ -25,12 +25,13 @@ import java.util.ArrayList;
 public class FragmentTab4 extends SherlockFragment {
 
     ListView lv;
+    View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Get the view from fragmenttab3.xml
-        View view = inflater.inflate(R.layout.fragmenttab4, container, false);
+        view = inflater.inflate(R.layout.fragmenttab4, container, false);
         lv = (ListView) view.findViewById(R.id.listView5);
         getPlacesCategory("Salud",view);
         return view;
@@ -40,6 +41,12 @@ public class FragmentTab4 extends SherlockFragment {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         setUserVisibleHint(true);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getPlacesCategory("Salud",view);
     }
 
     public void getPlacesCategory(final String category,final View view)
@@ -55,7 +62,7 @@ public class FragmentTab4 extends SherlockFragment {
             protected void onPreExecute() {
                 super.onPreExecute();
                 pDialog = new ProgressDialog(view.getContext());
-                pDialog.setMessage("Getting Data ...");
+                pDialog.setMessage("Obteniendo lugares..");
                 pDialog.setIndeterminate(false);
                 pDialog.setCancelable(true);
                 pDialog.show();

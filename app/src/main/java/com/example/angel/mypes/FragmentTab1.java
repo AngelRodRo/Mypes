@@ -37,12 +37,12 @@ import java.util.ArrayList;
 public class FragmentTab1 extends SherlockFragment {
 
     ListView lv;
-
+    View view;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
-        View view = inflater.inflate(R.layout.fragmenttab1,container,false);
+        view = inflater.inflate(R.layout.fragmenttab1,container,false);
         lv = (ListView) view.findViewById(R.id.listView);
 
         getPlacesCategory("Restaurante",view);
@@ -70,6 +70,11 @@ public class FragmentTab1 extends SherlockFragment {
     }
 
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        getPlacesCategory("Restaurante",view);
+    }
 
     public void getPlacesCategory(final String category,final View view)
     {
@@ -86,7 +91,7 @@ public class FragmentTab1 extends SherlockFragment {
             protected void onPreExecute() {
                 super.onPreExecute();
                 pDialog = new ProgressDialog(view.getContext());
-                pDialog.setMessage("Getting Data ...");
+                pDialog.setMessage("Obteniendo lugares..");
                 pDialog.setIndeterminate(false);
                 pDialog.setCancelable(true);
                 pDialog.show();
@@ -136,7 +141,6 @@ public class FragmentTab1 extends SherlockFragment {
                             JSONArray fotos = lugar.getJSONArray("fotos");
 
                             String foto = fotos.getString(0);
-
                             Bitmap bitmap=null;
 
                             try {

@@ -41,8 +41,8 @@ public class MainActivity extends SherlockActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        username = (EditText)findViewById(R.id.edtLoginUserName);
-        password = (EditText)findViewById(R.id.edtLoginPassword);
+/*        username = (EditText)findViewById(R.id.edtLoginUserName);
+        password = (EditText)findViewById(R.id.edtLoginPassword);*/
     }
 
     public void onRegister(View view)

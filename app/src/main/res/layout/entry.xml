@@ -47,16 +47,12 @@
                 android:textSize="@dimen/textsize_dos_entry_list" />
 
             <RatingBar
-                android:id = "@+id/MyRatingbar"
-
-                style="?android:attr/ratingBarStyleSmall"
+                android:id = "@+id/ratingbar"
                 android:layout_width = "wrap_content"
                 android:layout_height = "wrap_content"
                 android:numStars = "5"
-                android:rating="5.0"
-                android:stepSize = "1.0"></RatingBar>
-
-
+                style="?android:attr/ratingBarStyleSmall"
+                ></RatingBar>
         </LinearLayout>
     </LinearLayout>
 
