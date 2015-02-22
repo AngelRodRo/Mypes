@@ -52,5 +52,8 @@
     <dimen name="layout_marginBottom_searchMap">50dp</dimen>
     <dimen name="textsize_searchMap">23sp</dimen>
 
-
+    <!--DIMENSIouONES PARA EL LAYOUT ANIMA-->
+    <dimen name="layout_width_Anima">wrap_content</dimen>
+    <dimen name="layout_height_Anima">300dp</dimen>
+    <dimen name="layout_marginTop_Anima">5dp</dimen>
 </resources>

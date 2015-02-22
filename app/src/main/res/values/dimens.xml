@@ -53,6 +53,8 @@
     <dimen name="textsize_searchMap">16sp</dimen>
 
 
-
-    
+    <!--DIMENSIouONES PARA EL LAYOUT ANIMA-->
+    <dimen name="layout_width_Anima">220dp</dimen>
+    <dimen name="layout_height_Anima">250dp</dimen>
+    <dimen name="layout_marginTop_Anima">5dp</dimen>
 </resources>

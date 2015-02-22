@@ -104,7 +104,8 @@
                 android:text="996347066"
                 android:layout_gravity="right"
                 android:layout_marginRight="@dimen/layout_marginRight_Mype"
-                android:textSize="@dimen/textsize_txtDescripcion" />
+                android:textSize="@dimen/textsize_txtDescripcion"
+                android:id="@+id/" />
 
 
             <Button

@@ -13,8 +13,8 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="300dp"
+            android:layout_width="@dimen/layout_width_Anima"
+            android:layout_height="@dimen/layout_height_Anima"
             android:id="@+id/imageView"
             android:src="@drawable/logo"/>
 
@@ -22,7 +22,8 @@
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:id="@+id/progressBar" />
+            android:id="@+id/progressBar"
+            android:layout_marginTop="@dimen/layout_marginTop_Anima" />
 
     </LinearLayout>
 
