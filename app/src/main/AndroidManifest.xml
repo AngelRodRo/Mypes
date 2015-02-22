@@ -19,32 +19,22 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+         >
         <meta-data
             android:name="android.app.default_searchable"
             android:value=".SearchMapActivity" />
 
         <activity
-            android:name=".SearchActivity"
+            android:name=".Anima"
             android:label="@string/app_name"
             android:launchMode="singleTop"
-            android:theme="@style/AppTheme" >
+            android:theme="@android:style/Theme.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.SEARCH" />
-            </intent-filter>
-            <!-- Points to searchable activity -->
-            <meta-data
-                android:name="android.app.default_searchable"
-                android:value=".SearchMapActivity" />
-            <meta-data
-                android:name="android.app.searchable"
-                android:resource="@xml/searchable" />
+
         </activity>
         <activity
             android:name=".RegisterActivity"
@@ -67,17 +57,13 @@
             android:value="AIzaSyAFVy0tx6Ood5GGGwhBd4ITvXI64H0qSys" />
 
         <activity
-            android:name=".SelectActivity"
-            android:label="@string/title_activity_select" >
-        </activity>
-        <activity
             android:name=".MapActivity"
             android:label="@string/title_activity_map" >
         </activity>
         <activity
             android:name=".SearchMapActivity"
             android:icon="@drawable/ic_launcher"
-            android:label="@string/title_activity_search" >
+            android:label="Lugares" >
         </activity>
         <activity
             android:name=".PlaceActivity"
@@ -100,13 +86,21 @@
             android:label="@string/title_activity_activity_login" >
         </activity>
         <activity
-            android:name=".anima"
-            android:label="@string/title_activity_anima" >
+            android:name=".SearchActivity"
+            android:theme="@style/AppTheme"
+            android:label="@string/title_activity_search" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+            <!-- Points to searchable activity -->
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:value=".SearchMapActivity" />
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
         </activity>
-        <activity
-            android:name=".Anima"
-            android:label="@string/title_activity_anima" >
-        </activity>
+
     </application>
 
 </manifest>

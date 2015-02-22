@@ -1,51 +1,56 @@
 package com.example.angel.mypes;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.actionbarsherlock.app.SherlockFragment;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
+
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.widget.SearchView;
 import com.google.android.gms.maps.model.LatLng;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 
-/**
- * Created by angel on 16/02/15.
- */
-public class FragmentTab1 extends SherlockFragment {
+
+public class ListMypeActivity extends SherlockActivity {
+
+    String query;
+    ListAdapter listAdapter;
 
     ListView lv;
-    View view;
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_list_mype);
+        handleIntent(getIntent());
+
+        query = getIntent().getStringExtra("query");
+        lv= (ListView) findViewById(R.id.listView8);
 
 
-        view = inflater.inflate(R.layout.fragmenttab1,container,false);
-        lv = (ListView) view.findViewById(R.id.listView);
-
-        getPlacesCategory("Restaurante",view);
+        SearchMype(query);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -58,25 +63,9 @@ public class FragmentTab1 extends SherlockFragment {
                 startActivity(startPlace);
             }
         });
-
-
-        return view;
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        setUserVisibleHint(true);
-    }
-
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        getPlacesCategory("Restaurante",view);
-    }
-
-    public void getPlacesCategory(final String category,final View view)
+    public void SearchMype(final String query)
     {
         new AsyncTask<Void, Void, ListAdapter>() {/*
 
@@ -90,8 +79,8 @@ public class FragmentTab1 extends SherlockFragment {
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                pDialog = new ProgressDialog(view.getContext());
-                pDialog.setMessage("Obteniendo lugares..");
+                pDialog = new ProgressDialog(ListMypeActivity.this);
+                pDialog.setMessage("Getting Data ...");
                 pDialog.setIndeterminate(false);
                 pDialog.setCancelable(true);
                 pDialog.show();
@@ -107,9 +96,9 @@ public class FragmentTab1 extends SherlockFragment {
 
                 try{
                     jsonparam = new JSONObject();
-                    jsonparam.put("categoria",category);
+                    jsonparam.put("nombre",query);
                     JSONParser sh = new JSONParser();
-                    jsonStr = sh.makeServiceCall(Config.APP_SERVER_CATEGORY_PLACES, JSONParser.POST,jsonparam);
+                    jsonStr = sh.makeServiceCall(Config.APP_SERVER_SEARCH_REQUEST, JSONParser.POST,jsonparam);
                 }catch(JSONException e){
                     Log.e("JSONException", e.toString());
                 }
@@ -141,6 +130,7 @@ public class FragmentTab1 extends SherlockFragment {
                             JSONArray fotos = lugar.getJSONArray("fotos");
 
                             String foto = fotos.getString(0);
+
                             Bitmap bitmap=null;
 
                             try {
@@ -151,7 +141,7 @@ public class FragmentTab1 extends SherlockFragment {
 
                             data.add(new Place(_id, bitmap, nombre, direccion, telefono, new LatLng(latitude, longitude), categoria));
 
-                            listAdapter = new ListAdapter(getActivity().getBaseContext(),R.layout.entry,data){
+                            listAdapter = new ListAdapter(ListMypeActivity.this,R.layout.entry,data){
                                 @Override
                                 public void onEntrada(Object entrada, View view) {
                                     if (entrada != null) {
@@ -187,8 +177,6 @@ public class FragmentTab1 extends SherlockFragment {
                 super.onPostExecute(result);
                 pDialog.dismiss();
                 updateList(result);
-
-
                 // Dismiss the progress dialog
 
 
@@ -196,9 +184,62 @@ public class FragmentTab1 extends SherlockFragment {
         }.execute(null, null, null);
     }
 
+
     public void updateList(ListAdapter result)
     {
         lv.setAdapter(result);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getSupportMenuInflater().inflate(R.menu.menu_list_mype, menu);
+
+
+        //Set searchView
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
+
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchView.setIconifiedByDefault(false);
+        searchView.setQuery(query,true);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        setIntent(intent);
+        handleIntent(intent);
+
+    }
+
+    private void handleIntent(Intent intent)
+    {
+        if(Intent.ACTION_SEARCH.equals(intent.getAction()))
+        {
+            String query = intent.getStringExtra(SearchManager.QUERY);
+            doSearch(query);
+        }
+    }
+
+    private void doSearch(String queryStr)
+    {
+        SearchMype(queryStr);
+    }
 }

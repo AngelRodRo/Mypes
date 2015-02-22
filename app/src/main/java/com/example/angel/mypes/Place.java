@@ -17,7 +17,7 @@ public class Place {
     private String phone;
     private LatLng position;
     private String category;
-    private ArrayList<ArrayList<String>> comments;
+    private ArrayList<Comentario> comments;
     private String score;
     private String description;
     private ArrayList<String> photos;
@@ -48,7 +48,7 @@ public class Place {
     }
 
 
-    public Place(String _name,String _address,String _phone,LatLng _position,String _category,ArrayList<ArrayList<String>> _comments,String _description)
+    public Place(String _name,String _address,String _phone,LatLng _position,String _category,ArrayList<Comentario> _comments,String _description)
     {
         name=_name;
         address=_address;
@@ -60,7 +60,7 @@ public class Place {
 
     }
 
-    public Place(String _name,String _address,String _phone,LatLng _position,String _category,ArrayList<ArrayList<String>> _comments,String _score,String _description)
+    public Place(String _name,String _address,String _phone,LatLng _position,String _category,ArrayList<Comentario> _comments,String _score,String _description)
     {
         name=_name;
         address=_address;
@@ -72,7 +72,7 @@ public class Place {
         description = _description;
     }
 
-    public Place(String _name,Bitmap _foto,String _address,String _phone,LatLng _position,String _category,ArrayList<ArrayList<String>> _comments,String _score,String _description,ArrayList<String> _photos)
+    public Place(String _name,Bitmap _foto,String _address,String _phone,LatLng _position,String _category,ArrayList<Comentario> _comments,String _score,String _description,ArrayList<String> _photos)
     {
         name=_name;
         address=_address;
@@ -110,7 +110,8 @@ public class Place {
         this.position = position;
     }
 
-    public void setComments(ArrayList<ArrayList<String>> comments) {
+
+    public void setComments(ArrayList<Comentario> comments) {
         this.comments = comments;
     }
 
@@ -154,7 +155,7 @@ public class Place {
         return position;
     }
 
-    public ArrayList<ArrayList<String>> getComments() {
+    public ArrayList<Comentario> getComments() {
         return comments;
     }
 

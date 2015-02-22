@@ -37,10 +37,12 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
             case 5:
                 FragmentTab6 fragmenttab6 = new FragmentTab6();
                 return fragmenttab6;
+            default:
+                FragmentTab1 fragmentTab1 = new FragmentTab1();
+                return fragmentTab1;
 
         }
 
-        return null;
     }
 
     @Override

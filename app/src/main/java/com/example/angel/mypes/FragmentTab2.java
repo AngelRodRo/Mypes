@@ -29,7 +29,7 @@ public class FragmentTab2 extends SherlockFragment {
 
 
     ListView lv;
-
+    View view;
 
 
     @Override
@@ -37,7 +37,7 @@ public class FragmentTab2 extends SherlockFragment {
 
 
 
-        View view = inflater.inflate(R.layout.fragmenttab2,container,false);
+        view = inflater.inflate(R.layout.fragmenttab2,container,false);
         lv = (ListView) view.findViewById(R.id.listView3);
 
 
@@ -53,6 +53,12 @@ public class FragmentTab2 extends SherlockFragment {
         setUserVisibleHint(true);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        getPlacesCategory("Vestimenta",view);
+    }
+
     public void getPlacesCategory(final String category,final View view)
     {
         new AsyncTask<Void, Void, ListAdapter>() {
@@ -66,7 +72,7 @@ public class FragmentTab2 extends SherlockFragment {
             protected void onPreExecute() {
                 super.onPreExecute();
                 pDialog = new ProgressDialog(view.getContext());
-                pDialog.setMessage("Getting Data ...");
+                pDialog.setMessage("Obteniendo lugares..");
                 pDialog.setIndeterminate(false);
                 pDialog.setCancelable(true);
                 pDialog.show();
