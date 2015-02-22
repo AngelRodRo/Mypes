@@ -11,9 +11,6 @@
     <dimen name="layout_marginTop_edith">4dp</dimen>
     <dimen name="layout_height_layout_image">190dp</dimen>
 
-
-
-
     <!--DIMENSIONES PARA LAYOUT DE ACTIVITY ENTRY-->
     <dimen name="textsize_uno_entry_list">22sp</dimen>
     <dimen name="textsize_dos_entry_list">17sp</dimen>
@@ -47,6 +44,9 @@
     <dimen name="layout_height_searchMap">65dp</dimen>
     <dimen name="layout_marginBottom_searchMap">43dp</dimen>
     <dimen name="textsize_searchMap">17sp</dimen>
-
+    <!--DIMENSIouONES PARA EL LAYOUT ANIMA-->
+    <dimen name="layout_width_Anima">wrap_content</dimen>
+    <dimen name="layout_height_Anima">300dp</dimen>
+    <dimen name="layout_marginTop_Anima">5dp</dimen>
 
 </resources>

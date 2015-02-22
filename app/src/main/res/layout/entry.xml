@@ -54,8 +54,7 @@
                 android:layout_height = "wrap_content"
                 android:numStars = "5"
                 android:rating="5.0"
-                android:stepSize = "1.0"
-                android:layout_gravity="center_horizontal"></RatingBar>
+                android:stepSize = "1.0"></RatingBar>
 
 
         </LinearLayout>
